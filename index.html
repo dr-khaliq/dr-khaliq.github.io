@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abdul Khaliq | Ph.D. Student | Water Economics & Policy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #1a5276;   /* one subtle dark blue accent, used sparingly */
+      --black:  #1a1a1a;
+      --grey:   #555555;
+      --light:  #888888;
+      --rule:   #e0e0e0;
+      --bg:     #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--bg);
+      color: var(--black);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--accent);
+      height: 4px;
+      width: 100%;
+    }
+
+    /* ── NAV ── */
+    nav {
+      border-bottom: 1px solid var(--rule);
+      padding: 0 2rem;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 50;
+    }
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+    }
+    .nav-name {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--black);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 0; }
+    .nav-links a {
+      font-size: 0.83rem;
+      color: var(--grey);
+      text-decoration: none;
+      padding: 0 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      transition: color 0.15s;
+      border-left: 1px solid var(--rule);
+    }
+    .nav-links a:first-child { border-left: none; }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── WRAPPER ── */
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── HEADER / PROFILE ── */
+    .profile {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 2.5rem;
+      padding: 3.5rem 0 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .avatar {
+      width: 148px;
+      height: 148px;
+      border-radius: 4px;
+      background: #e8edf2;
+      border: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Source Serif 4', serif;
+      font-size: 2.8rem;
+      color: var(--accent);
+      font-weight: 300;
+      flex-shrink: 0;
+    }
+    .profile-info {}
+    .profile-name {
+      font-family: 'Source Serif 4', serif;
+      font-size: 2.1rem;
+      font-weight: 600;
+      color: var(--black);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+    .profile-title {
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.15rem;
+    }
+    .profile-dept {
+      font-size: 0.92rem;
+      color: var(--grey);
+      margin-bottom: 1.4rem;
+    }
+    .profile-contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      margin-bottom: 1.4rem;
+    }
+    .profile-contacts a {
+      font-size: 0.88rem;
+      color: var(--grey);
+      text-decoration: none;
+    }
+    .profile-contacts a:hover { color: var(--accent); text-decoration: underline; }
+    .profile-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .plink {
+      font-size: 0.8rem;
+      padding: 0.3rem 0.85rem;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.15s, color 0.15s;
+      font-weight: 500;
+    }
+    .plink:hover { background: var(--accent); color: #fff; }
+    .plink.solid { background: var(--accent); color: #fff; }
+    .plink.solid:hover { background: #154360; }
+
+    /* ── SECTION ── */
+    .section {
+      padding: 2.8rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .section:last-child { border-bottom: none; }
+    .section-title {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent);
+      display: inline-block;
+    }
+
+    /* ── RESEARCH INTERESTS ── */
+    .interests-text {
+      font-size: 0.93rem;
+      color: var(--grey);
+    }
+    .interests-text span {
+      display: inline-block;
+      margin-right: 0.2rem;
+    }
+    .interests-text span::after { content: ' ·'; color: var(--light); }
+    .interests-text span:last-child::after { content: ''; }
+
+    /* ── EDUCATION ── */
+    .edu-list { display: flex; flex-direction: column; gap: 1.2rem; }
+    .edu-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.2rem 1.5rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .edu-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .edu-degree {
+      font-family: 'Source Serif 4', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--black);
+    }
+    .edu-years {
+      font-size: 0.85rem;
+      color: var(--light);
+      white-space: nowrap;
+      text-align: right;
+      padding-top: 0.1rem;
+    }
+    .edu-inst {
+      font-size: 0.9rem;
+      color: var(--grey);
+      grid-column: 1;
+    }
+    .edu-loc {
+      font-size: 0.85rem;
+      color: var(--light);
+      grid-column: 2;
+      text-align: right;
+    }
+
+    /* ── PUBLICATIONS ── */
+    .pub-sublabel {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--light);
+      font-weight: 600;
+      margin: 0 0 1rem;
+    }
+    .pub-sublabel + .pub-sublabel,
+    .pub-list + .pub-sublabel { margin-top: 2rem; }
+    .pub-list { display: flex; flex-direction: column; gap: 1rem; }
+    .pub-item {
+      display: grid;
+      grid-template-columns: 1.8rem 1fr;
+      gap: 0 0.6rem;
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+    .pub-num {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding-top: 0.05rem;
+    }
+    .pub-body {}
+    .pub-title {
+      color: var(--black);
+      font-weight: 500;
+    }
+    .pub-authors { color: var(--grey); font-size: 0.9rem; }
+    .pub-authors strong { color: var(--black); font-weight: 600; }
+    .pub-ref {
+      color: var(--light);
+      font-size: 0.86rem;
+      font-style: italic;
+    }
+    .pub-ref a {
+      color: var(--accent);
+      text-decoration: none;
+      font-style: normal;
+      font-size: 0.83rem;
+    }
+    .pub-holders { display: flex; gap: 0.4rem; margin: 0.25rem 0 0.3rem; flex-wrap: wrap; }
+    .holder { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 0.1rem 0.5rem; border-radius: 2px; }
+    .holder-fa { background: #eaf2fb; color: var(--accent); border: 1px solid #aed6f1; }
+    .holder-ca { background: #fef9e7; color: #9a7d0a; border: 1px solid #f9e79f; }
+    .holder-co { background: #f4ecf7; color: #7d3c98; border: 1px solid #d7bde2; }
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: #eaf2fb;
+      color: var(--accent);
+      padding: 0.1rem 0.45rem;
+      border-radius: 2px;
+      vertical-align: middle;
+      margin-left: 0.3rem;
+    }
+
+    /* ── TEACHING ── */
+    .teach-summary { font-size: 0.93rem; color: var(--grey); margin-bottom: 1.4rem; }
+    .teach-summary strong { color: var(--black); }
+    .teach-statement { border-left: 3px solid var(--accent); padding: 1rem 1.4rem; margin-bottom: 2rem; background: #f7fafc; border-radius: 0 4px 4px 0; font-size: 0.92rem; color: var(--grey); line-height: 1.75; }
+    .teach-statement-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); font-weight: 600; margin-bottom: 0.6rem; }
+    .student-comments { margin-bottom: 2rem; }
+    .comments-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.65rem; margin-top: 0.5rem; }
+    .comment-card { background: #f7fafc; border: 1px solid var(--rule); border-left: 3px solid var(--accent); border-radius: 0 3px 3px 0; padding: 0.65rem 0.85rem; }
+    .comment-text { font-family: 'Source Serif 4', serif; font-size: 0.84rem; color: var(--black); font-style: italic; line-height: 1.55; }
+    .teach-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .teach-table th {
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--grey);
+      padding: 0.5rem 0.8rem;
+      border-bottom: 1px solid var(--black);
+    }
+    .teach-table td {
+      padding: 0.55rem 0.8rem;
+      border-bottom: 1px solid var(--rule);
+      color: var(--black);
+      vertical-align: middle;
+    }
+    .teach-table tr:last-child td { border-bottom: none; }
+    .teach-table tr:hover td { background: #f7fafc; }
+    .pi-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.1rem 0.45rem;
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+    }
+    .ta-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: #eaf2fb;
+      color: var(--accent);
+      padding: 0.1rem 0.45rem;
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+      border: 1px solid #aed6f1;
+    }
+
+    /* ── AWARDS ── */
+    .award-list { display: flex; flex-direction: column; }
+    .award-row {
+      display: grid;
+      grid-template-columns: 3.5rem 1fr;
+      gap: 0 1rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--rule);
+      font-size: 0.92rem;
+      align-items: baseline;
+    }
+    .award-row:last-child { border-bottom: none; }
+    .award-year { color: var(--accent); font-weight: 600; font-size: 0.88rem; }
+    .award-title { color: var(--black); font-weight: 500; }
+    .award-org { color: var(--grey); font-size: 0.88rem; }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+    }
+    .skill-group {
+      padding: 1.2rem 1.4rem;
+      border-right: 1px solid var(--rule);
+    }
+    .skill-group:last-child { border-right: none; }
+    .skill-group-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+    .skill-item {
+      font-size: 0.9rem;
+      color: var(--grey);
+      padding: 0.18rem 0;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .skill-item:last-child { border-bottom: none; }
+    .skill-item::before { content: '—'; color: var(--rule); font-size: 0.75rem; }
+
+    /* ── CONTACT ── */
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    .contact-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--light);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .contact-row {
+      font-size: 0.92rem;
+      color: var(--grey);
+      padding: 0.35rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .contact-row:last-child { border-bottom: none; }
+    .contact-row a { color: var(--accent); text-decoration: none; }
+    .contact-row a:hover { text-decoration: underline; }
+    .refs-list { display: flex; flex-direction: column; gap: 1.2rem; }
+    .ref-item {}
+    .ref-name { font-weight: 600; font-size: 0.92rem; }
+    .ref-role { font-size: 0.88rem; color: var(--grey); }
+    .ref-email { font-size: 0.86rem; }
+    .ref-email a { color: var(--accent); text-decoration: none; }
+    .ref-email a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--light);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .profile { grid-template-columns: 1fr; }
+      .avatar { display: none; }
+      .nav-links { display: none; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .skill-group { border-right: none; border-bottom: 1px solid var(--rule); }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-name" href="#top">Abdul Khaliq</a>
+    <div class="nav-links">
+      <a href="#research">Research</a>
+      <a href="#education">Education</a>
+      <a href="#publications">Publications</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- PROFILE -->
+  <header class="profile" id="top">
+    <div class="avatar">AK</div>
+    <div class="profile-info">
+      <h1 class="profile-name">Abdul Khaliq</h1>
+      <div class="profile-title">Ph.D. Student · Water Economics &amp; Policy</div>
+      <div class="profile-dept">Department of Water Science &amp; Management · New Mexico State University · Las Cruces, NM</div>
+      <div class="profile-contacts">
+        <a href="mailto:akb@nmsu.edu">akb@nmsu.edu</a>
+      </div>
+      <div class="profile-links">
+        <a href="https://drive.google.com/file/d/1EV60sJm6ebxgWF7speERruDRgvFGxrtm/view?usp=drive_link" class="plink solid">Download CV</a>
+        <a href="https://scholar.google.com/citations?user=s14APysAAAAJ&hl=en" target="_blank" class="plink">Google Scholar</a>
+        <a href="https://www.researchgate.net/profile/Abdul-Khaliq-54?ev=hdr_xprf" target="_blank" class="plink">ResearchGate</a>
+        <a href="https://www.linkedin.com/in/abdulkhaliqbutt/" target="_blank" class="plink">LinkedIn</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- RESEARCH INTERESTS -->
+  <section class="section" id="research">
+    <div class="section-title">Research Interests</div>
+    <p class="interests-text">
+      <span>Applied Microeconomics</span>
+      <span>Environmental Economics</span>
+      <span>Natural Resource Economics</span>
+      <span>Health Economics</span>
+      <span>Water Economics &amp; Policy</span>
+      <span>Energy Markets</span>
+    </p>
+    <p style="margin-top:1rem; font-size:0.93rem; color:var(--grey); max-width:720px;">
+      My research interests lie at the intersection of applied microeconomics, environmental policy, and energy markets. As a first-semester PhD student in Water Economics and Policy, I am developing a research agenda that builds on prior work in renewable energy regulation, clean energy transitions in Asian economies, and land-use governance. I am particularly interested in how policy and institutional frameworks shape resource use and environmental outcomes.
+    </p>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="section" id="education">
+    <div class="section-title">Education</div>
+    <div class="edu-list">
+      <div class="edu-row">
+        <div class="edu-degree">Ph.D. in Water Science &amp; Management</div>
+        <div class="edu-years">2026 – Present</div>
+        <div class="edu-inst">New Mexico State University &nbsp;·&nbsp; Concentration: Water Economics &amp; Policy</div>
+        <div class="edu-loc">Las Cruces, NM</div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-degree">Doctor of Economic Development</div>
+        <div class="edu-years">2022 – 2025</div>
+        <div class="edu-inst">New Mexico State University</div>
+        <div class="edu-loc">Las Cruces, NM</div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-degree">M.Phil. in Economics</div>
+        <div class="edu-years">2019 – 2022</div>
+        <div class="edu-inst">Pakistan Institute of Development Economics</div>
+        <div class="edu-loc">Islamabad, Pakistan</div>
+      </div>
+      <div class="edu-row">
+        <div class="edu-degree">B.S. in Economics</div>
+        <div class="edu-years">2013 – 2017</div>
+        <div class="edu-inst">Government College University Faisalabad</div>
+        <div class="edu-loc">Faisalabad, Pakistan</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section class="section" id="publications">
+    <div class="section-title">Publications</div>
+
+    <p class="pub-sublabel">Peer-Reviewed Journal Articles</p>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-num">5.</div>
+        <div class="pub-body">
+          <div class="pub-title">Transition-induced financial volatility in Asian countries: Evidence from clean energy finance and portfolio flows</div>
+          <div class="pub-authors"><strong>Khaliq, A.</strong> &amp; Farooq, O.</div>
+          <div class="pub-holders"><span class="holder holder-fa">First Author</span><span class="holder holder-ca">Corresponding Author</span></div>
+          <div class="pub-ref"><em>Finance Research Letters</em>, 2026. <a href="https://doi.org/10.1016/j.frl.2026.109885" target="_blank">https://doi.org/10.1016/j.frl.2026.109885</a> &nbsp;·&nbsp; <a href="https://drive.google.com/file/d/1puFy0oy3zXoQuAxm39sUQiWbqXzJMUJd/view?usp=drive_link" target="_blank">PDF</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">4.</div>
+        <div class="pub-body">
+          <div class="pub-title">Assessing the environmental impact of international funding for clean energy R&amp;D in Asian economies</div>
+          <div class="pub-authors"><strong>Khaliq, A.</strong>, Yaseen, M. R., &amp; Nisa, M.</div>
+          <div class="pub-holders"><span class="holder holder-fa">First Author</span><span class="holder holder-ca">Corresponding Author</span></div>
+          <div class="pub-ref"><em>Quality &amp; Quantity</em>, 2026. <a href="https://doi.org/10.1007/s11135-026-02646-9" target="_blank">https://doi.org/10.1007/s11135-026-02646-9</a> &nbsp;·&nbsp; <a href="https://drive.google.com/file/d/1Yj9V9Kt5fWk8mUJUT6MeOQQeTYiV0eSo/view?usp=drive_link" target="_blank">PDF</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">3.</div>
+        <div class="pub-body">
+          <div class="pub-title">The impact of renewable portfolio standards and land-use governance on CO₂ and gross total emissions in four U.S. regions</div>
+          <div class="pub-authors"><strong>Khaliq, A.</strong> &amp; Mamkhezri, J.</div>
+          <div class="pub-holders"><span class="holder holder-fa">First Author</span><span class="holder holder-ca">Corresponding Author</span></div>
+          <div class="pub-ref"><em>Applied Energy</em>, 2024. <a href="https://doi.org/10.1016/j.apenergy.2024.123832" target="_blank">https://doi.org/10.1016/j.apenergy.2024.123832</a> &nbsp;·&nbsp; <a href="https://drive.google.com/file/d/1NzJjotNSlpde6-cLzWNSe7uzZBdwlfkZ/view?usp=drive_link" target="_blank">PDF</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">2.</div>
+        <div class="pub-body">
+          <div class="pub-title">Impact of electricity generation, consumption, energy trade, and ICT on the environment in Pakistan: A NARDL and ARDL analysis</div>
+          <div class="pub-authors"><strong>Khaliq, A.</strong>, Atique, A., Hina, H., &amp; Bilal, A.</div>
+          <div class="pub-holders"><span class="holder holder-fa">First Author</span><span class="holder holder-ca">Corresponding Author</span></div>
+          <div class="pub-ref"><em>International Journal of Sustainable Development and World Ecology</em>, 2024. <a href="https://doi.org/10.1080/13504509.2023.2277918" target="_blank">https://doi.org/10.1080/13504509.2023.2277918</a> &nbsp;·&nbsp; <a href="https://drive.google.com/file/d/1w0_BeNr_OLg7WeEajjX9V3wg3lOQ-134/view?usp=drive_link" target="_blank">PDF</a></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">1.</div>
+        <div class="pub-body">
+          <div class="pub-title">Asymmetrical analysis of economic complexity and economic freedom on environment in South Asia: A NARDL approach</div>
+          <div class="pub-authors"><strong>Khaliq, A.</strong> &amp; Mamkhezri, J.</div>
+          <div class="pub-holders"><span class="holder holder-fa">First Author</span><span class="holder holder-ca">Corresponding Author</span></div>
+          <div class="pub-ref"><em>Environmental Science and Pollution Research</em>, 2023. <a href="https://doi.org/10.1007/s11356-023-28481-1" target="_blank">https://doi.org/10.1007/s11356-023-28481-1</a> &nbsp;·&nbsp; <a href="https://drive.google.com/file/d/1ZMU6I4rgJC-mYGMrkTNmpFef98GBcq1Z/view?usp=drive_link" target="_blank">PDF</a></div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="pub-sublabel" style="margin-top:2rem;">Manuscripts Under Review</p>
+    <div class="pub-list">
+
+      <div class="pub-item">
+        <div class="pub-num">—</div>
+        <div class="pub-body">
+          <div class="pub-title">Assessing the impact of eminent domain reforms on renewable energy expansion: A U.S. state-level analysis <span class="badge" style="background:#eafaf1;color:#1e8449;">Revision Submitted</span></div>
+          <div class="pub-authors"><strong>Khaliq, A.</strong> &amp; Mamkhezri, J.</div>
+          <div class="pub-holders"><span class="holder holder-fa">First Author</span><span class="holder holder-ca">Corresponding Author</span></div>
+          <div class="pub-ref"><em>Energy Economics</em></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">—</div>
+        <div class="pub-body">
+          <div class="pub-title">Do energy price shocks affect U.S. data center REIT returns? <span class="badge" style="background:#eafaf1;color:#1e8449;">Revision Submitted</span></div>
+          <div class="pub-authors"><strong>Khaliq, A.</strong> &amp; Boufous, S.</div>
+          <div class="pub-holders"><span class="holder holder-fa">First Author</span><span class="holder holder-ca">Corresponding Author</span></div>
+          <div class="pub-ref"><em>Finance Research Letters</em></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">—</div>
+        <div class="pub-body">
+          <div class="pub-title">Evaluating deposit efficiency and lending performance at the Bank of North Dakota <span class="badge">Under Review</span></div>
+          <div class="pub-authors">Farooq, O. &amp; <strong>Khaliq, A.</strong></div>
+          <div class="pub-holders"><span class="holder holder-co">Co-Author</span></div>
+          <div class="pub-ref"><em>Applied Economics Letters</em></div>
+        </div>
+      </div>
+
+      <div class="pub-item">
+        <div class="pub-num">—</div>
+        <div class="pub-body">
+          <div class="pub-title">Assessing environmental impacts of electricity distribution losses and natural resources in Pakistan <span class="badge">Under Review</span></div>
+          <div class="pub-authors"><strong>Khaliq, A.</strong> &amp; Mamkhezri, J.</div>
+          <div class="pub-holders"><span class="holder holder-fa">First Author</span><span class="holder holder-ca">Corresponding Author</span></div>
+          <div class="pub-ref"><em>Development &amp; Sustainability in Economics &amp; Finance</em></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TEACHING -->
+  <section class="section" id="teaching">
+    <div class="section-title">Teaching Experience</div>
+
+    <!-- TEACHING STATEMENT -->
+    <div class="teach-statement">
+      <div class="teach-statement-label">Teaching Statement</div>
+      <p>I approach teaching with the mindset that students deserve clarity, structure, and a space where they can ask questions freely. I enjoy helping them connect concepts, practice tools, and build confidence across a wide range of economics courses at both New Mexico State University and the University of New Mexico.</p>
+      <p style="margin-top:0.7rem;">My teaching philosophy has also been shaped by experiences that highlighted the importance of trust, respect, and confidentiality between students and instructors. I ensure that students feel safe, respected, and supported when they share their concerns or personal challenges.</p>
+    </div>
+
+    <!-- TEACHING SUMMARY TABLE -->
+    <p class="teach-summary">
+      <strong>4 sections</strong> as Primary Instructor &nbsp;·&nbsp;
+      <strong>7 sections</strong> as Teaching Assistant &nbsp;·&nbsp;
+      <strong>510 students</strong> total &nbsp;·&nbsp;
+      NMSU &amp; University of New Mexico
+    </p>
+    <div style="overflow-x:auto; background:var(--white); border:1px solid var(--rule); border-radius:2px; margin-bottom:2.5rem;">
+      <table class="teach-table">
+        <thead>
+          <tr>
+            <th>Term</th><th>Role</th><th>Course</th><th>Institution</th><th style="text-align:right;">N</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>SP 2025</td><td><span class="pi-tag">PI</span></td><td>ECON 2110 – Macroeconomic Principles</td><td>NMSU</td><td style="text-align:right;">19</td></tr>
+          <tr><td>FA 2024</td><td><span class="pi-tag">PI</span></td><td>ECON 2110 – Macroeconomic Principles</td><td>NMSU</td><td style="text-align:right;">39</td></tr>
+          <tr><td>SP 2024</td><td><span class="pi-tag">PI</span></td><td>ECON 2110 – Macroeconomic Principles</td><td>NMSU</td><td style="text-align:right;">23</td></tr>
+          <tr><td>FA 2023</td><td><span class="pi-tag">PI</span></td><td>ECON 2110 – Macroeconomic Principles</td><td>NMSU</td><td style="text-align:right;">54</td></tr>
+          <tr><td>FA 2025</td><td><span class="ta-tag">TA</span></td><td>ECON 300 – Intermediate Microeconomics</td><td>UNM</td><td style="text-align:right;">40</td></tr>
+          <tr><td>FA 2025</td><td><span class="ta-tag">TA</span></td><td>ECON 2120 – Microeconomic Principles</td><td>UNM</td><td style="text-align:right;">114</td></tr>
+          <tr><td>SP 2025</td><td><span class="ta-tag">TA</span></td><td>ECON 2110 – Macroeconomic Principles</td><td>NMSU</td><td style="text-align:right;">46</td></tr>
+          <tr><td>FA 2024</td><td><span class="ta-tag">TA</span></td><td>ECON 2120 – Microeconomic Principles</td><td>NMSU</td><td style="text-align:right;">39</td></tr>
+          <tr><td>SP 2024</td><td><span class="ta-tag">TA</span></td><td>ECON 405 – Introductory Econometrics</td><td>NMSU</td><td style="text-align:right;">13</td></tr>
+          <tr><td>FA 2023</td><td><span class="ta-tag">TA</span></td><td>ECON 2110 – Macroeconomic Principles</td><td>NMSU</td><td style="text-align:right;">60</td></tr>
+          <tr><td>FA 2022</td><td><span class="ta-tag">TA</span></td><td>ECON 304 – Money and Banking</td><td>NMSU</td><td style="text-align:right;">63</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- STUDENT COMMENTS -->
+    <div class="student-comments">
+      <div class="teach-statement-label">Selected Student Comments</div>
+      <div class="comments-grid">
+        <div class="comment-card"><div class="comment-text">"It's refreshing to see someone that gives a [darn]."</div></div>
+        <div class="comment-card"><div class="comment-text">"[Y]ou have an inspiring story that puts my privilege into perspective and motivates me to use the opportunities I have been given."</div></div>
+        <div class="comment-card"><div class="comment-text">"It is clearly evident how much you care about our success as your students."</div></div>
+        <div class="comment-card"><div class="comment-text">"I am grateful that you care about our class. I appreciate the effort you put towards our class, and towards sharing your story with your students."</div></div>
+        <div class="comment-card"><div class="comment-text">"I deeply appreciated the message that you conveyed through your personal experiences and I think it's a message that all Americans should be humbled to hear."</div></div>
+        <div class="comment-card"><div class="comment-text">"I think you the most engaged, personal, brilliant and connected with students large university class professor I have ever encountered."</div></div>
+        <div class="comment-card"><div class="comment-text">"The instructor's enthusiasm for the subject and the care for his student's well-being really came through. I enjoyed being in the class."</div></div>
+        <div class="comment-card"><div class="comment-text">"Very organized course and offered a very welcoming atmosphere."</div></div>
+        <div class="comment-card"><div class="comment-text">"The teacher is very enthusiastic about the class and cares the most about his students' success over any other teacher that I have."</div></div>
+        <div class="comment-card"><div class="comment-text">"He is genuine and has an incredible life story and a great view on hard-work."</div></div>
+        <div class="comment-card"><div class="comment-text">"Very nice professor. Does a good job trying to engage all students despite how checked out they may be."</div></div>
+        <div class="comment-card"><div class="comment-text">"Instructor was incredibly respectful with us students."</div></div>
+        <div class="comment-card"><div class="comment-text">"His instructions were very clear and concise while also being consistent."</div></div>
+        <div class="comment-card"><div class="comment-text">"He's a very patient and kind teacher."</div></div>
+        <div class="comment-card"><div class="comment-text">"I did learn a lot in this course."</div></div>
+        <div class="comment-card"><div class="comment-text">"The instructor was always very helpful and supportive."</div></div>
+        <div class="comment-card"><div class="comment-text">"Always had an engaging class."</div></div>
+        <div class="comment-card"><div class="comment-text">"His presentations were always prepared and it was very obvious that he knew the material extremely well."</div></div>
+        <div class="comment-card"><div class="comment-text">"Course was well-structured and well-planned."</div></div>
+        <div class="comment-card"><div class="comment-text">"I would just like to say that if anyone ever asks for recommendations for a macroeconomics instructor, professor Khaliq will be my go to!"</div></div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="section-title">Technical Skills</div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Econometrics &amp; Statistics</div>
+        <div class="skill-item">Stata</div>
+        <div class="skill-item">EViews</div>
+        <div class="skill-item">Python</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Data &amp; Visualization</div>
+        <div class="skill-item">Tableau</div>
+        <div class="skill-item">Power BI</div>
+        <div class="skill-item">Microsoft Excel</div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Spatial &amp; Other</div>
+        <div class="skill-item">ArcGIS Pro</div>
+        <div class="skill-item">IMPLAN</div>
+        <div class="skill-item">LaTeX</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="section-title">Contact</div>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-label">Direct Contact</p>
+        <div class="contact-row">Email: <a href="mailto:akb@nmsu.edu">akb@nmsu.edu</a></div>
+        <div class="contact-row">Location: Las Cruces, New Mexico</div>
+        <div class="contact-row">Affiliation: Department of Water Science &amp; Management, NMSU</div>
+      </div>
+
+      <div>
+        <p class="contact-label">Academic Profiles</p>
+        <div class="contact-row"><a href="https://scholar.google.com/citations?user=s14APysAAAAJ&hl=en" target="_blank">Google Scholar</a></div>
+        <div class="contact-row"><a href="https://www.researchgate.net/profile/Abdul-Khaliq-54?ev=hdr_xprf" target="_blank">ResearchGate</a></div>
+        <div class="contact-row"><a href="https://www.linkedin.com/in/abdulkhaliqbutt/" target="_blank">LinkedIn</a></div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page -->
+
+<footer>
+  <p>Abdul Khaliq &nbsp;·&nbsp; Ph.D. Student, Water Economics &amp; Policy &nbsp;·&nbsp; New Mexico State University &nbsp;·&nbsp; Last updated April 2026</p>
+</footer>
+
+</body>
+</html>
