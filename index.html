@@ -6,7 +6,7 @@
   <title>Abdul Khaliq | Ph.D. Student | Water Economics &amp; Policy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=EB+Garamond:wght@500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; }
 
@@ -18,7 +18,7 @@
       --rule: #efefef;
       --accent: #18385f;
       --pdf: #7a1f1f;
-      --maxw: 920px;
+      --maxw: 960px;
     }
 
     html { scroll-behavior: smooth; }
@@ -27,7 +27,7 @@
       margin: 0;
       background: #ffffff;
       color: var(--ink);
-      font-family: 'Inter', sans-serif;
+      font-family: 'Cabin', 'Segoe UI', Arial, sans-serif;
       font-size: 15.5px;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
@@ -78,8 +78,8 @@
     }
 
     .nav-name {
-      font-family: 'Source Serif 4', serif;
-      font-size: 1.02rem;
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1.18rem;
       font-weight: 700;
       color: var(--ink);
       letter-spacing: -0.01em;
@@ -104,43 +104,52 @@
     }
 
     .page {
-      padding-top: 34px;
-      padding-bottom: 60px;
+      padding-top: 42px;
+      padding-bottom: 72px;
     }
 
     .masthead {
-      padding-bottom: 26px;
+      padding-bottom: 34px;
       border-bottom: 1px solid var(--rule);
       margin-bottom: 6px;
     }
 
     .name {
-      margin: 0 0 8px;
-      font-family: 'Source Serif 4', serif;
-      font-size: clamp(2.5rem, 4vw, 3.6rem);
-      line-height: 0.98;
-      letter-spacing: -0.04em;
+      margin: 0 0 10px;
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: clamp(3rem, 5vw, 4.35rem);
+      line-height: 0.94;
+      letter-spacing: -0.045em;
       font-weight: 700;
       color: var(--ink);
     }
 
     .title {
-      font-size: 1.04rem;
+      font-size: 1.06rem;
       font-weight: 600;
       color: var(--accent);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+      letter-spacing: 0.01em;
     }
 
     .affiliation {
       color: var(--muted);
-      font-size: 0.97rem;
-      margin-bottom: 14px;
+      font-size: 0.98rem;
+      margin-bottom: 16px;
+      max-width: 760px;
     }
 
-    .contact-line,
-    .profile-links {
+    .contact-line {
       font-size: 0.9rem;
       color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .profile-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      margin-bottom: 18px;
     }
 
     .contact-line {
@@ -155,39 +164,54 @@
     }
 
     .profile-links a {
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .summary {
-      max-width: 760px;
+      max-width: 780px;
       color: var(--muted);
-      font-size: 0.96rem;
+      font-size: 0.98rem;
+      line-height: 1.8;
       margin: 0;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+    }
+
+    .field-line {
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      margin-bottom: 14px;
     }
 
     .section {
-      padding: 26px 0 28px;
+      padding: 34px 0 36px;
       border-bottom: 1px solid var(--rule);
     }
 
     .section-title {
-      margin: 0 0 14px;
-      font-family: 'Source Serif 4', serif;
-      font-size: 1.42rem;
-      font-weight: 700;
-      line-height: 1.15;
+      margin: 0 0 12px;
+      font-family: 'Cabin', 'Segoe UI', Arial, sans-serif;
+      font-size: 1.18rem;
+      font-weight: 600;
+      line-height: 1.2;
       color: var(--ink);
-      letter-spacing: -0.015em;
+      letter-spacing: 0.01em;
     }
 
     .interest-line,
     .lead-text {
       color: var(--muted);
-      font-size: 0.96rem;
+      font-size: 0.97rem;
+      line-height: 1.75;
     }
 
     .interest-line {
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-weight: 600;
     }
 
     .edu-list {
@@ -198,8 +222,8 @@
     .edu-row {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
-      gap: 5px 18px;
-      padding: 10px 0;
+      gap: 6px 18px;
+      padding: 14px 0;
       border-bottom: 1px solid var(--rule);
     }
 
@@ -210,10 +234,11 @@
     }
 
     .edu-degree {
-      font-family: 'Source Serif 4', serif;
-      font-size: 1rem;
+      font-family: 'Cabin', 'Segoe UI', Arial, sans-serif;
+      font-size: 1.02rem;
       font-weight: 600;
       color: var(--ink);
+      letter-spacing: 0.01em;
     }
 
     .edu-inst {
@@ -230,11 +255,11 @@
     }
 
     .subheading {
-      margin: 0 0 8px;
+      margin: 0 0 10px;
       color: var(--subtle);
-      font-size: 0.73rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
     }
 
@@ -244,9 +269,9 @@
     }
 
     .pub-note {
-      margin: 0 0 14px;
+      margin: 0 0 16px;
       color: var(--muted);
-      font-size: 0.84rem;
+      font-size: 0.85rem;
       font-style: italic;
     }
 
@@ -261,7 +286,7 @@
 
     .pub-list {
       display: grid;
-      gap: 10px;
+      gap: 12px;
     }
 
     .pub-item {
@@ -272,17 +297,20 @@
     }
 
     .pub-num {
-      font-family: 'Source Serif 4', serif;
-      font-size: 0.98rem;
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1.02rem;
       color: var(--ink);
-      font-weight: 600;
+      font-weight: 700;
       line-height: 1.6;
+      padding-top: 1px;
     }
 
     .pub-entry {
       color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.7;
+      font-size: 0.94rem;
+      line-height: 1.78;
+      padding-left: 1.15rem;
+      text-indent: -1.15rem;
     }
 
     .pub-entry strong {
@@ -294,6 +322,8 @@
       color: var(--ink);
       font-style: italic;
       font-weight: 700;
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1.02em;
     }
 
     .status {
@@ -309,10 +339,14 @@
     }
 
     .statement {
-      max-width: 780px;
+      max-width: 800px;
       color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 16px;
+      font-size: 0.96rem;
+      line-height: 1.78;
+      margin-bottom: 18px;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
     }
 
     .statement p {
@@ -321,8 +355,8 @@
 
     .teaching-summary {
       color: var(--muted);
-      font-size: 0.92rem;
-      margin-bottom: 14px;
+      font-size: 0.93rem;
+      margin-bottom: 16px;
     }
 
     .teaching-summary strong { color: var(--ink); }
@@ -335,7 +369,7 @@
     .teach-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.89rem;
+      font-size: 0.9rem;
     }
 
     .teach-table thead th {
@@ -375,16 +409,17 @@
 
     .comment {
       color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.65;
-      padding: 8px 0;
+      font-size: 0.91rem;
+      line-height: 1.68;
+      padding: 9px 0;
       border-bottom: 1px solid var(--rule);
     }
 
     .comment em {
-      font-family: 'Source Serif 4', serif;
+      font-family: 'EB Garamond', Georgia, serif;
       color: var(--ink);
       font-style: italic;
+      font-size: 1.02em;
     }
 
     .skills-grid,
@@ -399,16 +434,16 @@
     .group-label {
       color: var(--subtle);
       font-size: 0.74rem;
-      font-weight: 600;
-      letter-spacing: 0.13em;
+      font-weight: 700;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      margin-bottom: 9px;
     }
 
     .group-list {
       color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.8;
+      font-size: 0.93rem;
+      line-height: 1.9;
     }
 
     .contact-row {
@@ -424,10 +459,10 @@
 
     .footer-inner {
       border-top: 1px solid var(--rule);
-      padding-top: 16px;
+      padding-top: 14px;
       text-align: center;
-      font-size: 0.82rem;
-      color: var(--subtle);
+      font-size: 0.78rem;
+      color: #8a8a8a;
     }
 
     @media (max-width: 780px) {
@@ -465,11 +500,10 @@
     <div class="nav-inner">
       <a class="nav-name" href="#top">Abdul Khaliq</a>
       <div class="nav-links">
-        <a href="#research">Research</a>
         <a href="#education">Education</a>
         <a href="#publications">Publications</a>
         <a href="#teaching">Teaching</a>
-        <a href="#skills">Skills</a>
+        <a href="#skills">Methods</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -481,19 +515,15 @@
       <div class="title">Ph.D. Student · Water Economics &amp; Policy</div>
       <div class="affiliation">Department of Water Science &amp; Management · New Mexico State University · Las Cruces, New Mexico</div>
       <div class="contact-line">Email: <a href="mailto:akb@nmsu.edu">akb@nmsu.edu</a></div>
+      <div class="field-line">Environmental and Natural Resource Economics | Applied Microeconomics | Water Economics &amp; Policy</div>
       <div class="profile-links">
-        <a href="https://drive.google.com/file/d/1EV60sJm6ebxgWF7speERruDRgvFGxrtm/view?usp=drive_link">CV</a>
+        <a href="https://drive.google.com/file/d/1EV60sJm6ebxgWF7speERruDRgvFGxrtm/view?usp=drive_link">Curriculum Vitae</a>
         <a href="https://scholar.google.com/citations?user=s14APysAAAAJ&hl=en" target="_blank">Google Scholar</a>
         <a href="https://www.researchgate.net/profile/Abdul-Khaliq-54?ev=hdr_xprf" target="_blank">ResearchGate</a>
         <a href="https://www.linkedin.com/in/abdulkhaliqbutt/" target="_blank">LinkedIn</a>
       </div>
-      <p class="summary">My research interests lie at the intersection of applied microeconomics, environmental policy, and energy markets. As a first-semester PhD student in Water Economics and Policy, I am developing a research agenda that builds on prior work in renewable energy regulation, clean energy transitions in Asian economies, and land-use governance. I am particularly interested in how policy and institutional frameworks shape resource use and environmental outcomes.</p>
+      <p class="summary">My research interests lie at the intersection of applied microeconomics and environmental and natural resource economics. As a first-semester PhD student in Water Economics and Policy, I draw on prior work in energy and environmental policy, resource governance, and institutional analysis. I am particularly interested in energy, water, and environmental policy, with a focus on how institutions and regulation shape resource use and environmental outcomes.</p>
     </header>
-
-    <section class="section" id="research">
-      <h2 class="section-title">Research Interests</h2>
-      <div class="interest-line">Applied Microeconomics · Environmental &amp; Natural Resource Economics · Health Economics</div>
-    </section>
 
     <section class="section" id="education">
       <h2 class="section-title">Education</h2>
@@ -636,7 +666,7 @@
     </section>
 
     <section class="section" id="skills">
-      <h2 class="section-title">Technical Skills</h2>
+      <h2 class="section-title">Methods &amp; Tools</h2>
       <div class="skills-grid">
         <div>
           <div class="group-label">Econometrics &amp; Statistics</div>
@@ -673,7 +703,7 @@
   </div>
 
   <footer>
-    <div class="footer-inner">Abdul Khaliq · Ph.D. Student, Water Economics &amp; Policy · New Mexico State University · Last updated April 2026</div>
+    <div class="footer-inner">© 2026 Abdul Khaliq. All rights reserved.</div>
   </footer>
 </body>
 </html>
