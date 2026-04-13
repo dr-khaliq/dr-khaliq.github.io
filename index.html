@@ -6,7 +6,7 @@
 <title>Abdul Khaliq | Ph.D. Student | Water Economics & Policy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
@@ -32,9 +32,9 @@
   --maxw:1020px;
 }
 
-html{scroll-behavior:smooth}
+html { scroll-behavior:smooth }
 
-body{
+body {
   background:var(--bg);
   color:var(--ink);
   font-family:'DM Sans',system-ui,sans-serif;
@@ -43,17 +43,13 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 
-a{color:var(--navy-2);text-decoration:none}
-a:hover{text-decoration:underline;text-underline-offset:3px}
+a { color:var(--navy-2); text-decoration:none }
+a:hover { text-decoration:underline; text-underline-offset:3px }
 
-/* ─── HEADER BAND ─── */
-.band{
-  background:var(--navy);
-  height:4px;
-}
+/* NAV */
+.band { background:var(--navy); height:4px }
 
-/* ─── NAV ─── */
-nav{
+nav {
   background:var(--bg);
   border-bottom:1px solid var(--rule);
   position:sticky;
@@ -61,7 +57,7 @@ nav{
   z-index:100;
 }
 
-.nav-inner{
+.nav-inner {
   max-width:var(--maxw);
   margin:0 auto;
   padding:0 40px;
@@ -71,21 +67,17 @@ nav{
   justify-content:space-between;
 }
 
-.nav-logo{
+.nav-logo {
   font-family:'Cormorant Garamond',Georgia,serif;
   font-size:1.1rem;
   font-weight:700;
   color:var(--ink);
-  letter-spacing:0.01em;
 }
 
-.nav-links{
-  display:flex;
-  gap:28px;
-}
+.nav-links { display:flex; gap:28px }
 
-.nav-links a{
-  font-size:0.76rem;
+.nav-links a {
+  font-size:0.75rem;
   font-weight:500;
   letter-spacing:0.07em;
   text-transform:uppercase;
@@ -93,28 +85,27 @@ nav{
   transition:color 0.15s;
 }
 
-.nav-links a:hover{color:var(--navy);text-decoration:none}
+.nav-links a:hover { color:var(--navy); text-decoration:none }
 
-/* ─── PAGE ─── */
-.page{
+/* PAGE */
+.page {
   max-width:var(--maxw);
   margin:0 auto;
   padding:0 40px 100px;
 }
 
-/* ─── MASTHEAD ─── */
-.masthead{
+/* MASTHEAD */
+.masthead {
   padding:60px 0 52px;
   display:grid;
-  grid-template-columns:minmax(0,1fr) 200px;
+  grid-template-columns:minmax(0,1fr) 210px;
   gap:48px;
   align-items:start;
   border-bottom:1px solid var(--rule);
 }
 
-.mast-left{}
-
-.name{
+/* Name */
+.name {
   font-family:'Cormorant Garamond',Georgia,serif;
   font-size:clamp(3.2rem,5vw,5rem);
   font-weight:700;
@@ -124,56 +115,60 @@ nav{
   margin-bottom:20px;
 }
 
-.title-row{
+.title-row {
   font-size:1rem;
   font-weight:500;
   color:var(--navy-2);
   margin-bottom:3px;
 }
 
-.affil-row{
+.affil-row {
   font-size:0.9rem;
   color:var(--muted);
   margin-bottom:16px;
 }
 
-.email-row{
+.email-row {
   font-size:0.88rem;
   color:var(--muted);
   margin-bottom:18px;
 }
 
-.fields{
+/* Research interest tags — single row, no wrap */
+.fields {
   display:flex;
-  flex-wrap:wrap;
+  flex-wrap:nowrap;
   gap:6px;
   margin-bottom:22px;
+  overflow-x:auto;
 }
 
-.field{
-  font-size:0.73rem;
+.field {
+  font-size:0.71rem;
   font-weight:500;
-  letter-spacing:0.04em;
+  letter-spacing:0.03em;
   color:var(--navy-2);
   border:1px solid rgba(30,58,95,0.28);
-  padding:4px 11px;
+  padding:4px 10px;
   border-radius:2px;
+  white-space:nowrap;
+  flex-shrink:0;
 }
 
-.profile-links{
+.profile-links {
   display:flex;
   flex-wrap:wrap;
   gap:5px 20px;
   margin-bottom:26px;
 }
 
-.profile-links a{
+.profile-links a {
   font-size:0.84rem;
   font-weight:500;
   color:var(--navy-2);
 }
 
-.bio{
+.bio {
   max-width:700px;
   font-size:0.97rem;
   font-weight:300;
@@ -184,69 +179,60 @@ nav{
   hyphens:auto;
 }
 
-/* Sidebar card */
-.mast-right{
-  display:flex;
-  flex-direction:column;
-  gap:0;
-}
-
-.info-card{
+/* Sidebar Research Profile card */
+.info-card {
   border:1px solid var(--rule);
   border-radius:2px;
   overflow:hidden;
 }
 
-.info-card-head{
+.info-card-head {
   background:var(--navy);
-  padding:14px 18px;
+  padding:13px 18px;
   font-family:'Cormorant Garamond',Georgia,serif;
-  font-size:0.85rem;
+  font-size:0.84rem;
   font-weight:600;
   letter-spacing:0.08em;
   text-transform:uppercase;
   color:rgba(255,255,255,0.6);
 }
 
-.info-card-body{
-  padding:0;
-}
-
-.info-row{
+.info-row {
   display:flex;
   justify-content:space-between;
-  align-items:baseline;
-  gap:8px;
-  padding:11px 18px;
+  align-items:center;
+  gap:16px;
+  padding:10px 18px;
   border-bottom:1px solid var(--rule-light);
-  font-size:0.83rem;
 }
 
-.info-row:last-child{border-bottom:none}
+.info-row:last-child { border-bottom:none }
 
-.info-key{
-  color:var(--faint);
-  font-size:0.77rem;
+.info-key {
+  font-size:0.76rem;
   font-weight:500;
-  letter-spacing:0.04em;
+  letter-spacing:0.03em;
+  color:var(--faint);
+  white-space:nowrap;
   flex-shrink:0;
 }
 
-.info-val{
-  color:var(--mid);
-  text-align:right;
+.info-val {
   font-size:0.83rem;
+  color:var(--mid);
+  white-space:nowrap;
+  text-align:right;
 }
 
-/* ─── SECTION ─── */
-.section{
+/* SECTION */
+.section {
   padding:52px 0 48px;
   border-bottom:1px solid var(--rule);
 }
 
-.section:last-child{border-bottom:none}
+.section:last-child { border-bottom:none }
 
-.sec-title{
+.sec-title {
   font-family:'Cormorant Garamond',Georgia,serif;
   font-size:1.75rem;
   font-weight:700;
@@ -258,90 +244,17 @@ nav{
   gap:16px;
 }
 
-.sec-title::after{
+.sec-title::after {
   content:'';
   flex:1;
   height:1px;
   background:var(--rule);
 }
 
-.sec-sub{
-  font-size:0.78rem;
-  font-weight:500;
-  color:var(--gold);
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  margin-bottom:28px;
-}
-
-/* ─── EDU ─── */
-.edu-list{display:grid;gap:0}
-
-.edu-row{
-  display:grid;
-  grid-template-columns:1fr auto;
-  gap:3px 24px;
-  padding:20px 0 20px 20px;
-  border-bottom:1px solid var(--rule-light);
-  position:relative;
-}
-
-.edu-row:last-child{border-bottom:none}
-
-.edu-row::before{
-  content:'';
-  position:absolute;
-  left:0;
-  top:26px;
-  width:5px;
-  height:5px;
-  border-radius:50%;
-  background:var(--gold-2);
-}
-
-.edu-deg{
-  font-family:'Cormorant Garamond',Georgia,serif;
-  font-size:1.18rem;
-  font-weight:600;
-  color:var(--ink);
-}
-
-.edu-yr{
-  font-size:0.8rem;
-  font-weight:500;
-  color:var(--faint);
-  white-space:nowrap;
-  margin-top:4px;
-}
-
-.edu-inst{
-  font-size:0.88rem;
-  color:var(--muted);
-  grid-column:1;
-}
-
-.edu-loc{
-  font-size:0.8rem;
-  color:var(--faint);
-  text-align:right;
-  grid-column:2;
-  font-style:italic;
-}
-
-/* ─── PUBLICATIONS ─── */
-.pub-note{
-  font-size:0.85rem;
-  color:var(--muted);
-  font-style:italic;
-  margin-bottom:28px;
-  padding-left:14px;
-  border-left:2px solid var(--gold-2);
-}
-
-.pub-sub{
+.sec-sub {
   font-size:0.72rem;
   font-weight:600;
-  letter-spacing:0.18em;
+  letter-spacing:0.16em;
   text-transform:uppercase;
   color:var(--gold);
   margin-bottom:20px;
@@ -350,16 +263,68 @@ nav{
   gap:12px;
 }
 
-.pub-sub::after{
-  content:'';
-  flex:1;
-  height:1px;
-  background:var(--rule-light);
+.sec-sub::after { content:''; flex:1; height:1px; background:var(--rule-light) }
+
+/* EDUCATION — no bullets, no dots */
+.edu-list { display:grid; gap:0 }
+
+.edu-row {
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:3px 24px;
+  padding:20px 0;
+  border-bottom:1px solid var(--rule-light);
 }
 
-.pub-list{display:grid;gap:0;margin-bottom:40px}
+.edu-row:last-child { border-bottom:none }
 
-.pub-item{
+.edu-deg {
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:1.18rem;
+  font-weight:600;
+  color:var(--ink);
+  grid-column:1;
+}
+
+.edu-yr {
+  font-size:0.8rem;
+  font-weight:500;
+  color:var(--faint);
+  white-space:nowrap;
+  grid-column:2;
+  grid-row:1;
+  text-align:right;
+  margin-top:4px;
+}
+
+.edu-inst {
+  font-size:0.88rem;
+  color:var(--muted);
+  grid-column:1;
+}
+
+.edu-loc {
+  font-size:0.8rem;
+  color:var(--faint);
+  text-align:right;
+  grid-column:2;
+  grid-row:2;
+  font-style:italic;
+}
+
+/* PUBLICATIONS */
+.pub-note {
+  font-size:0.85rem;
+  color:var(--muted);
+  font-style:italic;
+  margin-bottom:28px;
+  padding-left:14px;
+  border-left:2px solid var(--gold-2);
+}
+
+.pub-list { display:grid; gap:0; margin-bottom:40px }
+
+.pub-item {
   display:grid;
   grid-template-columns:36px minmax(0,1fr);
   gap:0 14px;
@@ -368,39 +333,30 @@ nav{
   align-items:start;
 }
 
-.pub-item:last-child{border-bottom:none}
+.pub-item:last-child { border-bottom:none }
 
-.pub-num{
+.pub-num {
   font-family:'Cormorant Garamond',Georgia,serif;
   font-size:1.3rem;
   font-weight:700;
   color:var(--rule);
   line-height:1.4;
   text-align:right;
-  padding-right:2px;
   transition:color 0.2s;
 }
 
-.pub-item:hover .pub-num{color:var(--gold-2)}
+.pub-item:hover .pub-num { color:var(--gold-2) }
 
-.pub-body{
-  display:flex;
-  flex-direction:column;
-  gap:3px;
-}
+.pub-body { display:flex; flex-direction:column; gap:3px }
 
-.pub-authors{
+.pub-authors {
   font-size:0.88rem;
   color:var(--muted);
-  font-weight:400;
 }
 
-.pub-authors strong{
-  color:var(--ink);
-  font-weight:600;
-}
+.pub-authors strong { color:var(--ink); font-weight:600 }
 
-.pub-title{
+.pub-title {
   font-family:'Cormorant Garamond',Georgia,serif;
   font-size:1.08rem;
   font-weight:600;
@@ -409,7 +365,7 @@ nav{
   font-style:italic;
 }
 
-.pub-meta{
+.pub-meta {
   display:flex;
   flex-wrap:wrap;
   align-items:center;
@@ -417,28 +373,14 @@ nav{
   font-size:0.86rem;
 }
 
-.pub-journal{
-  font-weight:500;
-  color:var(--navy-2);
-}
+.pub-journal { font-weight:500; color:var(--navy-2) }
+.pub-year { color:var(--muted) }
 
-.pub-year{
-  color:var(--muted);
-}
+.pub-doi { font-size:0.78rem }
+.pub-doi a { color:var(--navy-3); opacity:0.8 }
+.pub-doi a:hover { opacity:1 }
 
-.pub-doi{
-  font-size:0.78rem;
-  color:var(--faint);
-}
-
-.pub-doi a{
-  color:var(--navy-3);
-  opacity:0.8;
-}
-
-.pub-doi a:hover{opacity:1}
-
-.status-badge{
+.status-badge {
   display:inline-flex;
   align-items:center;
   font-size:0.67rem;
@@ -449,12 +391,12 @@ nav{
   border-radius:2px;
 }
 
-.s-accepted{color:var(--gold);background:var(--gold-bg);border:1px solid var(--gold-border)}
-.s-revision{color:var(--green);background:var(--green-bg);border:1px solid rgba(26,92,56,0.2)}
-.s-review{color:var(--blue);background:var(--blue-bg);border:1px solid rgba(26,58,92,0.2)}
+.s-accepted { color:var(--gold); background:var(--gold-bg); border:1px solid var(--gold-border) }
+.s-revision { color:var(--green); background:var(--green-bg); border:1px solid rgba(26,92,56,0.2) }
+.s-review   { color:var(--blue);  background:var(--blue-bg);  border:1px solid rgba(26,58,92,0.2) }
 
-/* ─── TEACHING ─── */
-.teach-body{
+/* TEACHING */
+.teach-body {
   max-width:760px;
   font-size:0.96rem;
   font-weight:300;
@@ -466,9 +408,9 @@ nav{
   hyphens:auto;
 }
 
-.teach-body p+p{margin-top:12px}
+.teach-body p+p { margin-top:12px }
 
-.stats-bar{
+.stats-bar {
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:1px;
@@ -479,13 +421,9 @@ nav{
   margin-bottom:36px;
 }
 
-.stat-cell{
-  background:var(--bg);
-  padding:20px 18px;
-  text-align:center;
-}
+.stat-cell { background:var(--bg); padding:20px 18px; text-align:center }
 
-.stat-val{
+.stat-val {
   font-family:'Cormorant Garamond',Georgia,serif;
   font-size:2.4rem;
   font-weight:700;
@@ -495,7 +433,7 @@ nav{
   letter-spacing:-0.03em;
 }
 
-.stat-lbl{
+.stat-lbl {
   font-size:0.71rem;
   font-weight:600;
   letter-spacing:0.1em;
@@ -505,16 +443,15 @@ nav{
   margin-top:5px;
 }
 
-/* TABLE */
-.t-wrap{overflow-x:auto;margin-bottom:40px}
+.t-wrap { overflow-x:auto; margin-bottom:40px }
 
-table.teach{
+table.teach {
   width:100%;
   border-collapse:collapse;
   font-size:0.88rem;
 }
 
-table.teach thead th{
+table.teach thead th {
   font-size:0.7rem;
   font-weight:600;
   letter-spacing:0.13em;
@@ -526,7 +463,7 @@ table.teach thead th{
   white-space:nowrap;
 }
 
-table.teach td{
+table.teach td {
   padding:11px 14px;
   border-bottom:1px solid var(--rule-light);
   color:var(--mid);
@@ -534,15 +471,15 @@ table.teach td{
   line-height:1.4;
 }
 
-table.teach tbody tr:last-child td{border-bottom:none}
-table.teach tbody tr:hover td{background:rgba(22,40,71,0.025)}
+table.teach tbody tr:last-child td { border-bottom:none }
+table.teach tbody tr:hover td { background:rgba(22,40,71,0.025) }
 
-.r-pi{font-size:0.67rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--green);background:var(--green-bg);border:1px solid rgba(26,92,56,0.2);padding:3px 8px;border-radius:2px;white-space:nowrap}
-.r-ta{font-size:0.67rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--navy-2);background:#e8eff8;border:1px solid rgba(30,58,95,0.2);padding:3px 8px;border-radius:2px;white-space:nowrap}
-.t-num{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+.r-pi { font-size:0.67rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--green); background:var(--green-bg); border:1px solid rgba(26,92,56,0.2); padding:3px 8px; border-radius:2px; white-space:nowrap }
+.r-ta { font-size:0.67rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--navy-2); background:#e8eff8; border:1px solid rgba(30,58,95,0.2); padding:3px 8px; border-radius:2px; white-space:nowrap }
+.t-num { text-align:right; font-variant-numeric:tabular-nums; color:var(--muted) }
 
-/* QUOTES */
-.quotes-head{
+/* STUDENT QUOTES — DM Sans, left-border style, no table */
+.quotes-head {
   font-size:0.72rem;
   font-weight:600;
   letter-spacing:0.18em;
@@ -554,140 +491,87 @@ table.teach tbody tr:hover td{background:rgba(22,40,71,0.025)}
   gap:12px;
 }
 
-.quotes-head::after{content:'';flex:1;height:1px;background:var(--rule-light)}
+.quotes-head::after { content:''; flex:1; height:1px; background:var(--rule-light) }
 
-.quotes-grid{
+.quotes-flow {
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:0;
-  border:1px solid var(--rule);
-  border-radius:2px;
-  overflow:hidden;
+  gap:12px;
 }
 
-.quote{
-  padding:18px 22px;
-  font-family:'Cormorant Garamond',Georgia,serif;
-  font-size:1.05rem;
-  font-style:italic;
-  color:var(--mid);
-  line-height:1.7;
-  border-bottom:1px solid var(--rule-light);
-  position:relative;
-}
-
-.quotes-grid .quote:nth-child(odd){border-right:1px solid var(--rule-light)}
-
-.quotes-grid .quote:nth-last-child(1),
-.quotes-grid .quote:nth-last-child(2){border-bottom:none}
-
-.quote::before{
-  content:'\201C';
-  font-size:2.2rem;
-  color:var(--gold-2);
-  opacity:0.35;
-  line-height:0.8;
-  display:block;
-  margin-bottom:2px;
+.quote {
+  font-family:'DM Sans',system-ui,sans-serif;
+  font-size:0.91rem;
   font-style:normal;
+  font-weight:400;
+  color:var(--mid);
+  line-height:1.72;
+  padding:14px 18px;
+  border-left:2px solid var(--gold-2);
 }
 
-/* ─── SKILLS ─── */
-.skills-grid{
+/* SKILLS — open columns, no border/grid */
+.skills-cols {
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:1px;
-  background:var(--rule);
-  border:1px solid var(--rule);
-  border-radius:2px;
-  overflow:hidden;
+  gap:32px;
 }
 
-.skill-group{
-  background:var(--bg);
-  padding:24px 26px;
-}
-
-.skill-label{
+.skill-group-title {
   font-size:0.72rem;
   font-weight:600;
   letter-spacing:0.16em;
   text-transform:uppercase;
   color:var(--gold);
-  margin-bottom:16px;
-  padding-bottom:10px;
-  border-bottom:1px solid var(--rule-light);
+  margin-bottom:12px;
+  padding-bottom:8px;
+  border-bottom:1px solid var(--rule);
 }
 
-.skill-item{
+.skill-item {
   font-size:0.92rem;
   color:var(--mid);
-  padding:7px 0;
-  border-bottom:1px solid var(--rule-light);
-  display:flex;
-  align-items:center;
-  gap:10px;
+  padding:5px 0;
+  font-weight:400;
 }
 
-.skill-item:last-child{border-bottom:none}
-
-.skill-item::before{
-  content:'';
-  width:4px;height:4px;
-  border-radius:50%;
-  background:var(--gold-2);
-  flex-shrink:0;
-}
-
-/* ─── CONTACT ─── */
-.contact-grid{
+/* CONTACT — open columns, no border/grid */
+.contact-cols {
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:1px;
-  background:var(--rule);
-  border:1px solid var(--rule);
-  border-radius:2px;
-  overflow:hidden;
+  gap:48px;
 }
 
-.contact-block{
-  background:var(--bg);
-  padding:28px 30px;
-}
-
-.contact-label{
+.contact-group-title {
   font-size:0.72rem;
   font-weight:600;
   letter-spacing:0.16em;
   text-transform:uppercase;
   color:var(--gold);
-  margin-bottom:16px;
-  padding-bottom:10px;
-  border-bottom:1px solid var(--rule-light);
+  margin-bottom:12px;
+  padding-bottom:8px;
+  border-bottom:1px solid var(--rule);
 }
 
-.contact-row{
+.contact-line {
   font-size:0.9rem;
   color:var(--mid);
-  padding:8px 0;
-  border-bottom:1px solid var(--rule-light);
+  padding:5px 0;
   display:flex;
-  align-items:baseline;
   gap:10px;
+  align-items:baseline;
 }
 
-.contact-row:last-child{border-bottom:none}
-
-.c-key{
+.c-key {
   font-size:0.79rem;
   color:var(--faint);
   font-weight:500;
+  min-width:80px;
   flex-shrink:0;
-  min-width:72px;
 }
 
-/* ─── FOOTER ─── */
-footer{
+/* FOOTER */
+footer {
   max-width:var(--maxw);
   margin:0 auto;
   padding:22px 40px;
@@ -699,33 +583,31 @@ footer{
   color:var(--faint);
 }
 
-/* ─── ANIMATIONS ─── */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(14px)}
-  to{opacity:1;transform:translateY(0)}
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(14px) }
+  to   { opacity:1; transform:translateY(0) }
 }
 
-.name{animation:fadeUp .6s cubic-bezier(.22,1,.36,1) both}
-.title-row{animation:fadeUp .6s .07s cubic-bezier(.22,1,.36,1) both}
-.affil-row{animation:fadeUp .6s .12s cubic-bezier(.22,1,.36,1) both}
-.fields{animation:fadeUp .6s .17s cubic-bezier(.22,1,.36,1) both}
-.profile-links{animation:fadeUp .6s .22s cubic-bezier(.22,1,.36,1) both}
-.bio{animation:fadeUp .6s .27s cubic-bezier(.22,1,.36,1) both}
-.mast-right{animation:fadeUp .6s .2s cubic-bezier(.22,1,.36,1) both}
+.name         { animation:fadeUp .6s cubic-bezier(.22,1,.36,1) both }
+.title-row    { animation:fadeUp .6s .07s cubic-bezier(.22,1,.36,1) both }
+.affil-row    { animation:fadeUp .6s .12s cubic-bezier(.22,1,.36,1) both }
+.fields       { animation:fadeUp .6s .17s cubic-bezier(.22,1,.36,1) both }
+.profile-links{ animation:fadeUp .6s .22s cubic-bezier(.22,1,.36,1) both }
+.bio          { animation:fadeUp .6s .27s cubic-bezier(.22,1,.36,1) both }
+.info-card    { animation:fadeUp .6s .20s cubic-bezier(.22,1,.36,1) both }
 
-/* ─── RESPONSIVE ─── */
+/* RESPONSIVE */
 @media(max-width:820px){
-  .masthead{grid-template-columns:1fr}
-  .mast-right{display:none}
-  .page,nav .nav-inner,footer{padding-left:22px;padding-right:22px}
-  .nav-links{display:none}
-  .skills-grid,.contact-grid{grid-template-columns:1fr}
-  .quotes-grid{grid-template-columns:1fr}
-  .quotes-grid .quote:nth-child(odd){border-right:none}
-  .quotes-grid .quote:nth-last-child(2){border-bottom:1px solid var(--rule-light)}
-  .stats-bar{grid-template-columns:repeat(2,1fr)}
-  .edu-row{grid-template-columns:1fr}
-  .edu-yr,.edu-loc{text-align:left}
+  .masthead { grid-template-columns:1fr }
+  .info-card { display:none }
+  .page, .nav-inner, footer { padding-left:22px; padding-right:22px }
+  .nav-links { display:none }
+  .skills-cols, .contact-cols { grid-template-columns:1fr }
+  .quotes-flow { grid-template-columns:1fr }
+  .stats-bar { grid-template-columns:repeat(2,1fr) }
+  .edu-row { grid-template-columns:1fr }
+  .edu-yr, .edu-loc { text-align:left }
 }
 </style>
 </head>
@@ -756,12 +638,15 @@ footer{
       <div class="title-row">Ph.D. Student · Water Economics &amp; Policy</div>
       <div class="affil-row">Department of Water Science &amp; Management · New Mexico State University</div>
       <div class="email-row"><a href="mailto:akb@nmsu.edu">akb@nmsu.edu</a></div>
+
+      <!-- Single-row research interest tags -->
       <div class="fields">
         <span class="field">Applied Microeconomics</span>
         <span class="field">Natural Resource Economics</span>
         <span class="field">Energy Economics</span>
         <span class="field">Environmental Economics</span>
       </div>
+
       <div class="profile-links">
         <a href="https://drive.google.com/file/d/1z27upIrUMBgzaQc4LzIZSjYV0tHkZQ_x/view?usp=drive_link" target="_blank" rel="noopener">Curriculum Vitae</a>
         <a href="https://scholar.google.com/citations?user=s14APysAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
@@ -769,25 +654,22 @@ footer{
         <a href="https://www.researchgate.net/profile/Abdul-Khaliq-54?ev=hdr_xprf" target="_blank" rel="noopener">ResearchGate</a>
         <a href="https://www.linkedin.com/in/abdulkhaliqbutt/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
+
       <p class="bio">My research interests lie at the intersection of applied microeconomics and environmental and natural resource economics. As a first-semester PhD student in Water Economics and Policy, I draw on prior work in energy and environmental policy, resource governance, and institutional analysis. I am particularly interested in energy, water, and environmental policy, with a focus on how institutions and regulation shape resource use and environmental outcomes.</p>
     </div>
 
-    <div class="mast-right">
-      <div class="info-card">
-        <div class="info-card-head">At a Glance</div>
-        <div class="info-card-body">
-          <div class="info-row"><span class="info-key">Position</span><span class="info-val">Ph.D. Student</span></div>
-          <div class="info-row"><span class="info-key">Program</span><span class="info-val">Water Econ. &amp; Policy</span></div>
-          <div class="info-row"><span class="info-key">Institution</span><span class="info-val">NMSU</span></div>
-          <div class="info-row"><span class="info-key">Publications</span><span class="info-val">6 peer-reviewed</span></div>
-          <div class="info-row"><span class="info-key">Students</span><span class="info-val">510 taught</span></div>
-          <div class="info-row"><span class="info-key">Since</span><span class="info-val">2026</span></div>
-        </div>
-      </div>
+    <!-- Research Profile card — no "Since" row, single-line values -->
+    <div class="info-card">
+      <div class="info-card-head">Research Profile</div>
+      <div class="info-row"><span class="info-key">Position</span><span class="info-val">Ph.D. Student</span></div>
+      <div class="info-row"><span class="info-key">Program</span><span class="info-val">Water Econ. &amp; Policy</span></div>
+      <div class="info-row"><span class="info-key">Institution</span><span class="info-val">NMSU</span></div>
+      <div class="info-row"><span class="info-key">Publications</span><span class="info-val">6 peer-reviewed</span></div>
+      <div class="info-row"><span class="info-key">Students taught</span><span class="info-val">510</span></div>
     </div>
   </header>
 
-  <!-- EDUCATION -->
+  <!-- EDUCATION — no bullet dots -->
   <section class="section" id="education">
     <h2 class="sec-title">Education</h2>
     <div class="edu-list">
@@ -821,9 +703,8 @@ footer{
   <!-- PUBLICATIONS -->
   <section class="section" id="publications">
     <h2 class="sec-title">Publications</h2>
-    <div class="pub-sub">Peer-Reviewed Journal Articles</div>
+    <div class="sec-sub">Peer-Reviewed Journal Articles</div>
     <p class="pub-note"><sup>†</sup> indicates first and corresponding author.</p>
-
     <div class="pub-list">
 
       <div class="pub-item">
@@ -979,8 +860,9 @@ footer{
       </table>
     </div>
 
+    <!-- Student quotes: DM Sans, left-border, no table look -->
     <div class="quotes-head">Selected Student Evaluations</div>
-    <div class="quotes-grid">
+    <div class="quotes-flow">
       <div class="quote">"It's refreshing to see someone that gives a [darn]."</div>
       <div class="quote">"[Y]ou have an inspiring story that puts my privilege into perspective and motivates me to use the opportunities I have been given."</div>
       <div class="quote">"It is clearly evident how much you care about our success as your students."</div>
@@ -994,24 +876,24 @@ footer{
     </div>
   </section>
 
-  <!-- SKILLS -->
+  <!-- SKILLS — open columns, no borders/grid box -->
   <section class="section" id="skills">
     <h2 class="sec-title">Technical Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-group">
-        <div class="skill-label">Econometrics &amp; Statistics</div>
+    <div class="skills-cols">
+      <div>
+        <div class="skill-group-title">Econometrics &amp; Statistics</div>
         <div class="skill-item">Stata</div>
         <div class="skill-item">EViews</div>
         <div class="skill-item">Python</div>
       </div>
-      <div class="skill-group">
-        <div class="skill-label">Data &amp; Visualization</div>
+      <div>
+        <div class="skill-group-title">Data &amp; Visualization</div>
         <div class="skill-item">Tableau</div>
         <div class="skill-item">Power BI</div>
         <div class="skill-item">Microsoft Excel</div>
       </div>
-      <div class="skill-group">
-        <div class="skill-label">Spatial &amp; Other</div>
+      <div>
+        <div class="skill-group-title">Spatial &amp; Other</div>
         <div class="skill-item">ArcGIS Pro</div>
         <div class="skill-item">Stella</div>
         <div class="skill-item">LaTeX</div>
@@ -1019,22 +901,22 @@ footer{
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT — open columns, no borders/grid box -->
   <section class="section" id="contact">
     <h2 class="sec-title">Contact</h2>
-    <div class="contact-grid">
-      <div class="contact-block">
-        <div class="contact-label">Direct</div>
-        <div class="contact-row"><span class="c-key">Email</span><a href="mailto:akb@nmsu.edu">akb@nmsu.edu</a></div>
-        <div class="contact-row"><span class="c-key">Location</span><span>Las Cruces, New Mexico</span></div>
-        <div class="contact-row"><span class="c-key">Department</span><span>Water Science &amp; Management, NMSU</span></div>
+    <div class="contact-cols">
+      <div>
+        <div class="contact-group-title">Direct</div>
+        <div class="contact-line"><span class="c-key">Email</span><a href="mailto:akb@nmsu.edu">akb@nmsu.edu</a></div>
+        <div class="contact-line"><span class="c-key">Location</span><span>Las Cruces, New Mexico</span></div>
+        <div class="contact-line"><span class="c-key">Department</span><span>Water Science &amp; Management, NMSU</span></div>
       </div>
-      <div class="contact-block">
-        <div class="contact-label">Academic Profiles</div>
-        <div class="contact-row"><span class="c-key">Scholar</span><a href="https://scholar.google.com/citations?user=s14APysAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a></div>
-        <div class="contact-row"><span class="c-key">ORCID</span><a href="https://orcid.org/0000-0002-2525-3536" target="_blank" rel="noopener">0000-0002-2525-3536</a></div>
-        <div class="contact-row"><span class="c-key">ResearchGate</span><a href="https://www.researchgate.net/profile/Abdul-Khaliq-54?ev=hdr_xprf" target="_blank" rel="noopener">View Profile</a></div>
-        <div class="contact-row"><span class="c-key">LinkedIn</span><a href="https://www.linkedin.com/in/abdulkhaliqbutt/" target="_blank" rel="noopener">View Profile</a></div>
+      <div>
+        <div class="contact-group-title">Academic Profiles</div>
+        <div class="contact-line"><span class="c-key">Scholar</span><a href="https://scholar.google.com/citations?user=s14APysAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a></div>
+        <div class="contact-line"><span class="c-key">ORCID</span><a href="https://orcid.org/0000-0002-2525-3536" target="_blank" rel="noopener">0000-0002-2525-3536</a></div>
+        <div class="contact-line"><span class="c-key">ResearchGate</span><a href="https://www.researchgate.net/profile/Abdul-Khaliq-54?ev=hdr_xprf" target="_blank" rel="noopener">View Profile</a></div>
+        <div class="contact-line"><span class="c-key">LinkedIn</span><a href="https://www.linkedin.com/in/abdulkhaliqbutt/" target="_blank" rel="noopener">View Profile</a></div>
       </div>
     </div>
   </section>
