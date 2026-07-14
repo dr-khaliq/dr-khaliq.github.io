@@ -456,12 +456,13 @@
     }
 
     .pub-doi {
-      display: inline-block;
-      margin-top: 7px;
-      font-size: .68rem;
-      font-weight: 500;
-      letter-spacing: .08em;
-      color: var(--accent);
+      display: inline;
+      margin-top: 0;
+      margin-left: 6px;
+      color: #476b85;
+      letter-spacing: .03em;
+      font-size: .62rem;
+      white-space: nowrap;
     }
 
     .pub-doi:hover { color: var(--ink); text-decoration-color: var(--accent-soft); }
@@ -469,10 +470,14 @@
     .wp-list { list-style: none; }
 
     .wp-item {
-      padding: 20px 0;
+      margin: 0;
+      padding: 16px 0;
+      border: 0;
       border-bottom: 1px solid var(--hairline);
-      font-size: .97rem;
-      line-height: 1.75;
+      background: transparent;
+      font-family: var(--serif);
+      font-size: .94rem;
+      line-height: 1.58;
     }
 
     .wp-item:first-child { padding-top: 8px; }
@@ -481,18 +486,18 @@
     .wp-item strong { font-weight: 600; color: var(--ink); }
 
     .wp-badge {
-      display: inline-block;
-      margin-left: 12px;
-      padding-left: 14px;
-      border-left: 1px solid var(--accent-line);
+      display: inline;
+      margin-left: 8px;
+      padding-left: 9px;
+      border-left: 1px solid var(--accent-pale);
       font-family: var(--sans);
-      font-size: .58rem;
+      font-size: .55rem;
       font-weight: 600;
-      font-style: normal;
-      letter-spacing: .16em;
+      letter-spacing: .12em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--accent-deep);
       vertical-align: 1px;
+      white-space: normal;
     }
 
     /* ---------------- teaching ---------------- */
@@ -816,8 +821,8 @@
 
     .wrap {
       max-width: var(--wide);
-      padding-left: clamp(24px, 5.5vw, 88px);
-      padding-right: clamp(24px, 5.5vw, 88px);
+      padding-left: clamp(36px, 6.5vw, 112px);
+      padding-right: clamp(36px, 6.5vw, 112px);
     }
 
     .caps {
@@ -836,8 +841,8 @@
     .topnav-inner {
       max-width: var(--wide);
       height: 72px;
-      padding-left: clamp(24px, 5.5vw, 88px);
-      padding-right: clamp(24px, 5.5vw, 88px);
+      padding-left: clamp(36px, 6.5vw, 112px);
+      padding-right: clamp(36px, 6.5vw, 112px);
     }
 
     .topnav-name {
@@ -901,6 +906,8 @@
 
     .hero-grid {
       width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 190px minmax(0, 1fr) 300px;
       gap: clamp(38px, 5vw, 82px);
@@ -1149,18 +1156,25 @@
     /* Research */
     .pub-note {
       color: var(--muted);
-      border-left: 3px solid var(--accent);
-      padding-left: 18px;
+      border-left: 2px solid var(--accent);
+      padding-left: 14px;
+      margin-bottom: 28px;
+      font-size: .92rem;
     }
 
     .pub-group {
-      margin-top: 62px;
+      margin-top: 44px;
     }
 
     .pub-group-title,
     .quotes-head {
       color: var(--accent-deep);
-      letter-spacing: .2em;
+      letter-spacing: .18em;
+    }
+
+    .pub-group-title {
+      margin-bottom: 8px;
+      font-size: .6rem;
     }
 
     .pub-group-title::after,
@@ -1169,51 +1183,56 @@
     }
 
     .pub-list {
-      counter-reset: paper;
+      list-style: none;
+      margin: 0;
+      padding: 0;
       border-top: 1px solid var(--hairline);
     }
 
     .pub-item {
-      counter-increment: paper;
       display: grid;
-      grid-template-columns: 52px minmax(0, 1fr);
-      gap: 20px;
-      padding: 22px 0;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+      padding: 16px 0;
       margin: 0;
       border: 0;
       border-bottom: 1px solid var(--hairline);
       background: transparent;
-      transition: background .2s ease, padding .2s ease;
+      transition: none;
     }
 
     .pub-item:hover {
       transform: none;
       box-shadow: none;
+      background: transparent;
+      padding-left: 0;
+      padding-right: 0;
       border-color: var(--hairline);
-      background: rgba(252,250,246,.42);
-      padding-left: 14px;
-      padding-right: 14px;
     }
 
     .pub-no {
       width: auto;
       height: auto;
       display: block;
-      padding-top: 3px;
+      padding-top: 2px;
+      border: 0;
       border-radius: 0;
       background: transparent;
-      color: var(--accent-deep);
+      color: var(--muted);
       font-family: var(--sans);
-      font-size: .68rem;
+      font-size: .64rem;
       font-weight: 600;
-      letter-spacing: .12em;
+      letter-spacing: .08em;
+      line-height: 1.7;
       text-align: left;
     }
 
     .pub-text {
       font-family: var(--serif);
-      font-size: .98rem;
-      line-height: 1.7;
+      font-size: .94rem;
+      line-height: 1.58;
+      color: var(--ink-soft);
     }
 
     .pub-text strong,
@@ -1328,29 +1347,35 @@
     .contact {
       max-width: none;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border: 1px solid var(--hairline);
-      background: rgba(252,250,246,.52);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(34px, 5vw, 72px);
+      align-items: start;
+      background: transparent;
+      border: 0;
     }
 
     .contact-row {
       display: block;
-      padding: 30px;
-      border-bottom: 0;
-      border-right: 1px solid var(--hairline);
+      padding: 0;
+      border: 0;
+      text-align: left;
+      transform: none;
     }
-
-    .contact-row:last-child { border-right: 0; }
 
     .contact-label {
       display: block;
       margin-bottom: 10px;
       color: var(--accent-deep);
+      text-align: left;
     }
 
     .contact-val {
+      display: block;
       font-family: var(--serif);
+      font-size: 1.08rem;
+      line-height: 1.6;
       color: var(--ink);
+      text-align: left;
     }
 
     /* Footer */
@@ -1362,8 +1387,8 @@
 
     .footer-inner {
       max-width: var(--wide);
-      padding-left: clamp(24px, 5.5vw, 88px);
-      padding-right: clamp(24px, 5.5vw, 88px);
+      padding-left: clamp(36px, 6.5vw, 112px);
+      padding-right: clamp(36px, 6.5vw, 112px);
     }
 
     .footer-affiliation { color: #e8dcc3; }
@@ -1427,20 +1452,26 @@
 
       .contact {
         grid-template-columns: 1fr;
+        gap: 28px;
       }
 
       .contact-row {
-        border-right: 0;
-        border-bottom: 1px solid var(--hairline);
+        border: 0;
+        padding: 0;
       }
-
-      .contact-row:last-child { border-bottom: 0; }
 
       .stat:nth-child(2) { border-right: 0; }
       .stat:nth-child(-n+2) { border-bottom: 1px solid var(--hairline); }
     }
 
     @media (max-width: 560px) {
+      .wrap,
+      .topnav-inner,
+      .footer-inner {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
       .masthead h1 {
         font-size: clamp(2.9rem, 13vw, 5.2rem);
         white-space: nowrap;
@@ -1457,9 +1488,15 @@
       .edu-year, .edu-loc { text-align: left; }
 
       .pub-item {
-        grid-template-columns: 38px minmax(0, 1fr);
-        gap: 12px;
-        padding: 18px 0;
+        grid-template-columns: 30px minmax(0, 1fr);
+        gap: 10px;
+        padding: 14px 0;
+      }
+
+      .pub-text,
+      .wp-item {
+        font-size: .9rem;
+        line-height: 1.52;
       }
 
       .stats { grid-template-columns: 1fr; }
