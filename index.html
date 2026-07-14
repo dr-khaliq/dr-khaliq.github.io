@@ -12,791 +12,667 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --white:    #ffffff;
-      --bg:       #f9f8f6;
-      --bg2:      #f2f0ec;
-      --border:   #e2dfd8;
-      --border2:  #ccc8bf;
-      --ink:      #1c1916;
-      --text:     #3a3630;
-      --sub:      #5c574f;
-      --muted:    #928d85;
-      --accent:   #2c4a7a;
-      --accent2:  #1a3260;
-      --serif:    'Cormorant Garamond', Georgia, serif;
-      --sans:     'Jost', system-ui, sans-serif;
-      --mono:     'JetBrains Mono', monospace;
-      --side-w:   300px;
+  :root {
+    --paper: #f7f3ed;
+    --panel: #ffffff;
+    --ink: #181515;
+    --text: #403a37;
+    --muted: #817871;
+    --line: #d9d0c7;
+    --crimson: #8c0b2d;
+    --crimson-dark: #62071f;
+    --crimson-soft: #f2e6ea;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', Arial, sans-serif;
+    --mono: 'JetBrains Mono', Consolas, monospace;
+    --max: 1220px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15.5px;
+    line-height: 1.68;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: var(--crimson);
+    text-decoration: none;
+  }
+
+  a:hover { color: var(--crimson-dark); }
+
+  /* slim top navigation */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 max(22px, calc((100vw - var(--max)) / 2));
+    background: rgba(247,243,237,.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .navbar-name {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .navbar-name::after { content: 'Abdul Khaliq'; }
+
+  .navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .navbar-links a {
+    font-family: var(--mono);
+    font-size: .58rem;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .navbar-links a:hover,
+  .navbar-links a.active { color: var(--crimson); }
+
+  .navbar-email {
+    padding-left: 18px;
+    border-left: 1px solid var(--line);
+  }
+
+  .shell {
+    display: grid;
+    grid-template-columns: 270px minmax(0, 1fr);
+    max-width: var(--max);
+    margin: 28px auto;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    box-shadow: 0 18px 50px rgba(44,31,31,.06);
+  }
+
+  /* left profile rail */
+  .sidebar {
+    position: sticky;
+    top: 76px;
+    height: calc(100vh - 104px);
+    padding: 34px 26px;
+    background: var(--crimson-dark);
+    color: #fff;
+    border: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .sidebar-name {
+    font-family: var(--serif);
+    font-size: 2.1rem;
+    line-height: .95;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  .sidebar-title {
+    font-family: var(--mono);
+    font-size: .61rem;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.72);
+    margin-bottom: 8px;
+  }
+
+  .sidebar-inst {
+    font-size: .82rem;
+    line-height: 1.55;
+    color: rgba(255,255,255,.78);
+  }
+
+  .sidebar-divider {
+    height: 1px;
+    background: rgba(255,255,255,.18);
+  }
+
+  .sidebar-nav-label,
+  .sidebar-links-label {
+    font-family: var(--mono);
+    font-size: .55rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.5);
+    margin-bottom: 10px;
+  }
+
+  .sidebar-nav,
+  .sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .sidebar-nav a,
+  .sidebar-links a {
+    color: rgba(255,255,255,.8);
+    font-size: .82rem;
+    padding: 7px 0;
+  }
+
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .sidebar-nav a:hover,
+  .sidebar-nav a.active,
+  .sidebar-links a:hover { color: #fff; }
+
+  .sidebar-nav a span.dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.45);
+  }
+
+  .sidebar-nav a.active span.dot { background: #fff; }
+
+  .sidebar-links a::before {
+    content: '↗';
+    margin-right: 7px;
+    color: rgba(255,255,255,.55);
+  }
+
+  .main {
+    min-width: 0;
+    background: var(--panel);
+  }
+
+  /* removed hero area remains hidden */
+  .hero { display: none; }
+
+  .section {
+    padding: 42px 54px 38px;
+    border-bottom: 1px solid var(--line);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .4s ease, transform .4s ease;
+  }
+
+  .section:last-of-type { border-bottom: 0; }
+
+  .section.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .section-header {
+    margin-bottom: 22px;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: 2rem;
+    line-height: 1;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -.02em;
+  }
+
+  .section-rule { display: none; }
+
+  .about-lead {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+
+  .about-body {
+    font-size: .98rem;
+    line-height: 1.85;
+    margin-bottom: 22px;
+  }
+
+  .profile-links,
+  .contact-ext-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .profile-link {
+    padding: 7px 11px;
+    border: 1px solid var(--crimson);
+    font-family: var(--mono);
+    font-size: .56rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .profile-link:hover {
+    background: var(--crimson);
+    color: #fff;
+  }
+
+  .edu-item {
+    display: grid;
+    grid-template-columns: 1fr 130px;
+    gap: 2px 18px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .edu-item:first-of-type { border-top: 1px solid var(--line); }
+
+  .edu-degree {
+    font-family: var(--serif);
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .edu-year {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: right;
+    font-family: var(--mono);
+    font-size: .62rem;
+    color: var(--crimson);
+    padding-top: 4px;
+  }
+
+  .edu-inst { font-size: .89rem; color: var(--text); }
+  .edu-loc { text-align: right; font-size: .72rem; color: var(--muted); }
+
+  .pub-note {
+    font-size: .79rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 18px;
+  }
+
+  .pub-group-title {
+    display: block;
+    margin: 26px 0 8px;
+    padding: 0 0 7px;
+    border-bottom: 2px solid var(--crimson);
+    font-family: var(--mono);
+    font-size: .57rem;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    background: transparent;
+  }
+
+  .pub-group-title:first-of-type { margin-top: 0; }
+
+  .pub-list {
+    list-style: none;
+    counter-reset: pubs 8;
+  }
+
+  .pub-item {
+    counter-increment: pubs -1;
+    display: grid;
+    grid-template-columns: 34px 1fr;
+    gap: 10px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .pub-item::before {
+    content: counter(pubs);
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--crimson);
+    line-height: 1.5;
+  }
+
+  .pub-text,
+  .wp-item {
+    font-size: .91rem;
+    line-height: 1.72;
+  }
+
+  .pub-text strong,
+  .wp-item strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .pub-text em span { color: var(--crimson) !important; }
+
+  .pub-doi {
+    display: inline-block;
+    margin-top: 5px;
+    font-family: var(--mono);
+    font-size: .57rem;
+  }
+
+  .wp-list { list-style: none; }
+
+  .wp-item {
+    position: relative;
+    padding: 13px 0 13px 18px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .wp-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 24px;
+    width: 7px;
+    height: 2px;
+    background: var(--crimson);
+  }
+
+  .wp-badge {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 2px 6px;
+    border: 1px solid var(--crimson);
+    font-family: var(--mono);
+    font-size: .51rem;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    vertical-align: middle;
+  }
+
+  .teach-intro {
+    font-size: .97rem;
+    line-height: 1.82;
+    margin-bottom: 24px;
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 26px;
+  }
+
+  .stat-block {
+    padding: 16px 14px;
+    background: var(--crimson-soft);
+    border: 1px solid #e6d4da;
+  }
+
+  .stat-val {
+    display: block;
+    font-family: var(--serif);
+    font-size: 2.35rem;
+    line-height: .9;
+    font-weight: 700;
+    color: var(--crimson-dark);
+  }
+
+  .stat-lbl {
+    display: block;
+    margin-top: 7px;
+    font-size: .65rem;
+    color: var(--muted);
+  }
+
+  .teach-table-wrap {
+    overflow-x: auto;
+    margin-bottom: 28px;
+    border: 1px solid var(--line);
+  }
+
+  table.teach {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+    font-size: .87rem;
+  }
+
+  table.teach thead { background: var(--crimson-dark); }
+
+  table.teach th {
+    padding: 11px 13px;
+    text-align: left;
+    font-family: var(--mono);
+    font-size: .54rem;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.8);
+  }
+
+  table.teach td {
+    padding: 10px 13px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  table.teach tbody tr:last-child td { border-bottom: 0; }
+  table.teach tbody tr:hover { background: #fbf4f6; }
+
+  .t-num {
+    text-align: right;
+    font-family: var(--mono);
+    color: var(--muted);
+  }
+
+  .role-pi { font-weight: 600; color: var(--ink); }
+  .role-ta { color: var(--muted); }
+
+  .quotes-label {
+    margin-bottom: 12px;
+    font-family: var(--mono);
+    font-size: .56rem;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .quotes-grid {
+    columns: 2 260px;
+    column-gap: 12px;
+  }
+
+  .quote-card {
+    break-inside: avoid;
+    margin-bottom: 12px;
+    padding: 14px 15px;
+    background: #fbfaf8;
+    border: 1px solid var(--line);
+    font-family: var(--serif);
+    font-size: .96rem;
+    line-height: 1.55;
+    font-style: italic;
+    color: var(--text);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .skill-group {
+    padding: 16px;
+    border: 1px solid var(--line);
+    background: #fbfaf8;
+  }
+
+  .skill-group-title {
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--crimson);
+    font-family: var(--mono);
+    font-size: .54rem;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    color: var(--crimson);
+  }
+
+  .skill-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: .88rem;
+  }
+
+  .skill-item:last-child { border-bottom: 0; }
+
+  .skill-item::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--crimson);
+  }
+
+  .contact-list { max-width: 650px; }
+
+  .contact-row {
+    display: grid;
+    grid-template-columns: 105px 1fr;
+    gap: 18px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .contact-row:first-child { border-top: 1px solid var(--line); }
+
+  .contact-label {
+    font-family: var(--mono);
+    font-size: .55rem;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    color: var(--crimson);
+  }
+
+  .contact-val { font-size: .91rem; }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 54px;
+    background: var(--crimson-dark);
+    color: rgba(255,255,255,.72);
+    font-family: var(--mono);
+    font-size: .54rem;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 930px) {
+    .shell {
+      grid-template-columns: 1fr;
+      margin: 0;
+      border-left: 0;
+      border-right: 0;
     }
 
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.75;
-      -webkit-font-smoothing: antialiased;
+    .sidebar {
+      position: static;
+      height: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      padding: 28px 24px;
     }
 
-    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
-    a:hover { color: var(--ink); }
+    .sidebar > div:first-child { grid-column: 1 / -1; }
+    .sidebar-divider { display: none; }
 
-    /* ═══ TOP NAVBAR ═══ */
+    .sidebar-nav,
+    .sidebar-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+
+    .section { padding: 36px 28px; }
+    footer { padding: 18px 28px; }
+  }
+
+  @media (max-width: 680px) {
     .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 48px;
-      height: 56px;
+      position: relative;
+      height: auto;
+      padding: 12px 16px;
     }
 
-    .navbar-name {
-      font-family: var(--serif);
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--ink);
-      letter-spacing: 0.01em;
-    }
+    .navbar-name { display: none; }
 
     .navbar-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-
-    .navbar-links a {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--sub);
-      position: relative;
-      padding-bottom: 2px;
-    }
-
-    .navbar-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -2px; left: 0;
-      width: 0; height: 1px;
-      background: var(--accent);
-      transition: width 0.25s;
-    }
-
-    .navbar-links a:hover { color: var(--accent); }
-    .navbar-links a:hover::after,
-    .navbar-links a.active::after { width: 100%; }
-    .navbar-links a.active { color: var(--accent); }
-
-    .navbar-email {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--muted);
-      border-left: 1px solid var(--border);
-      padding-left: 24px;
-      margin-left: 8px;
-    }
-
-    .navbar-email a { color: var(--muted); }
-    .navbar-email a:hover { color: var(--accent); }
-
-    /* ═══ PAGE SHELL ═══ */
-    .shell {
-      display: grid;
-      grid-template-columns: var(--side-w) 1fr;
-      min-height: calc(100vh - 56px);
-    }
-
-    /* ═══ SIDEBAR ═══ */
-    .sidebar {
-      background: var(--white);
-      border-right: 1px solid var(--border);
-      padding: 48px 36px;
-      position: sticky;
-      top: 56px;
-      height: calc(100vh - 56px);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 28px;
-    }
-
-    .sidebar-name {
-      font-family: var(--serif);
-      font-size: 1.9rem;
-      font-weight: 600;
-      color: var(--ink);
-      line-height: 1.1;
-      letter-spacing: -0.01em;
-      margin-bottom: 6px;
-    }
-
-    .sidebar-title {
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: var(--accent);
-      letter-spacing: 0.05em;
-      margin-bottom: 4px;
-    }
-
-    .sidebar-inst {
-      font-size: 0.8rem;
-      color: var(--sub);
-      line-height: 1.5;
-    }
-
-    .sidebar-divider { height: 1px; background: var(--border); }
-
-    .sidebar-nav-label, .sidebar-links-label {
-      font-family: var(--mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .sidebar-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .sidebar-nav a {
-      font-size: 0.88rem;
-      font-weight: 500;
-      color: var(--sub);
-      padding: 7px 12px;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .sidebar-nav a span.dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--border2);
-      flex-shrink: 0;
-      transition: background 0.2s;
-    }
-
-    .sidebar-nav a:hover,
-    .sidebar-nav a.active {
-      background: #eef2f9;
-      color: var(--accent);
-    }
-
-    .sidebar-nav a:hover span.dot,
-    .sidebar-nav a.active span.dot {
-      background: var(--accent);
-    }
-
-    .sidebar-links {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .sidebar-links a {
-      font-size: 0.82rem;
-      color: var(--sub);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .sidebar-links a:hover { color: var(--accent); }
-    .sidebar-links a::before {
-      content: '↗';
-      font-size: 0.7rem;
-      color: var(--muted);
-    }
-
-    /* ═══ MAIN ═══ */
-    .main { min-width: 0; }
-
-    /* ═══ HERO ═══ */
-    .hero {
-      background: var(--accent2);
-      padding: 56px 64px;
-      border-bottom: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        -45deg,
-        transparent,
-        transparent 40px,
-        rgba(255,255,255,0.015) 40px,
-        rgba(255,255,255,0.015) 41px
-      );
-      pointer-events: none;
-    }
-
-    .hero-eyebrow {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 16px;
-    }
-
-    .hero-name {
-      font-family: var(--serif);
-      font-size: clamp(2.8rem, 4.5vw, 4.2rem);
-      font-weight: 600;
-      color: #ffffff;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      margin-bottom: 28px;
-    }
-
-    .hero-tags {
-      display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      justify-content: center;
+      gap: 7px 14px;
     }
 
-    .hero-tag {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.08em;
-      color: rgba(255,255,255,0.7);
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 5px 14px;
-      background: rgba(255,255,255,0.06);
-    }
+    .navbar-email { display: none; }
 
-    /* ═══ SECTIONS ═══ */
-    .section {
-      padding: 52px 64px;
-      border-bottom: 1px solid var(--border);
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
-    }
+    .sidebar { grid-template-columns: 1fr; }
+    .sidebar > div:first-child { grid-column: auto; }
 
-    .section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .stats-row { grid-template-columns: 1fr 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .quotes-grid { columns: 1; }
 
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 32px;
-    }
-
-    .section-title {
-      font-family: var(--serif);
-      font-size: 1.7rem;
-      font-weight: 600;
-      color: var(--ink);
-      letter-spacing: -0.01em;
-      white-space: nowrap;
-    }
-
-    .section-rule {
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* ═══ ABOUT ═══ */
-    #about .section-header,
-    #about .profile-links {
-      max-width: 100%;
-    }
-
-    .about-lead {
-      font-family: var(--serif);
-      font-size: 1.42rem;
-      color: var(--ink);
-      line-height: 1.7;
-      margin-bottom: 22px;
-      max-width: 100%;
-      width: 100%;
-    }
-
-    .about-body {
-      font-size: 1.02rem;
-      color: var(--text);
-      line-height: 1.95;
-      max-width: 100%;
-      width: 100%;
-      margin-bottom: 36px;
-    }
-
-    .profile-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .profile-link {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      padding: 8px 20px;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .profile-link:hover {
-      background: var(--accent);
-      color: var(--white);
-    }
-
-    /* ═══ EDUCATION ═══ */
-    .edu-item {
-      display: grid;
-      grid-template-columns: 1fr 140px;
-      gap: 2px 24px;
-      padding: 24px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .edu-item:first-child { border-top: 1px solid var(--border); }
-
-    .edu-degree {
-      font-family: var(--serif);
-      font-size: 1.18rem;
-      font-weight: 600;
-      color: var(--ink);
+    .edu-item { grid-template-columns: 1fr; }
+    .edu-year, .edu-loc {
       grid-column: 1;
-    }
-
-    .edu-year {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      color: var(--muted);
-      grid-column: 2;
-      grid-row: 1;
-      text-align: right;
-      padding-top: 4px;
-    }
-
-    .edu-inst {
-      font-size: 0.93rem;
-      color: var(--sub);
-      grid-column: 1;
-    }
-
-    .edu-loc {
-      font-size: 0.75rem;
-      color: var(--muted);
-      grid-column: 2;
-      text-align: right;
-    }
-
-    /* ═══ PUBLICATIONS ═══ */
-    .pub-note {
-      font-size: 0.85rem;
-      color: var(--muted);
-      font-style: italic;
-      margin-bottom: 28px;
-    }
-
-    .pub-group-title {
-      font-family: var(--mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      padding: 10px 0;
-      border-bottom: 2px solid var(--accent);
-      margin: 36px 0 20px;
-      display: inline-block;
-    }
-
-    .pub-group-title:first-of-type { margin-top: 0; }
-
-    .pub-list {
-      list-style: none;
-      counter-reset: pubs 7;
-    }
-
-    .pub-item {
-      counter-increment: pubs -1;
-      display: grid;
-      grid-template-columns: 32px 1fr;
-      gap: 0 18px;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .pub-item:last-child { border-bottom: none; }
-
-    .pub-item::before {
-      content: counter(pubs);
-      font-family: var(--serif);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--border2);
-      line-height: 1.2;
-    }
-
-    .pub-text {
-      font-size: 0.95rem;
-      line-height: 1.78;
-      color: var(--text);
-    }
-
-    .pub-text strong {
-      color: var(--ink);
-      font-weight: 600;
-    }
-
-    .pub-doi {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      margin-top: 6px;
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      color: var(--accent);
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
-    }
-
-    .pub-doi:hover {
-      border-color: var(--accent);
-      color: var(--accent2);
-    }
-
-    .wp-list { list-style: none; }
-
-    .wp-item {
-      padding: 18px 0 18px 22px;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.95rem;
-      line-height: 1.78;
-      color: var(--text);
-      position: relative;
-    }
-
-    .wp-item:last-child { border-bottom: none; }
-
-    .wp-item::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 28px;
-      width: 8px;
-      height: 1px;
-      background: var(--accent);
-    }
-
-    .wp-item strong {
-      color: var(--ink);
-      font-weight: 600;
-    }
-
-    .wp-badge {
-      display: inline-block;
-      font-family: var(--mono);
-      font-size: 0.58rem;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      padding: 2px 8px;
-      margin-left: 8px;
-      vertical-align: middle;
-      opacity: 0.8;
-    }
-
-    /* ═══ TEACHING ═══ */
-    #teaching .section-header,
-    #teaching .stats-row,
-    #teaching .teach-table-wrap,
-    #teaching .quotes-label,
-    #teaching .quotes-grid {
-      max-width: 100%;
-    }
-
-    .teach-intro {
-      font-size: 1.02rem;
-      line-height: 1.95;
-      color: var(--text);
-      margin-bottom: 42px;
-      max-width: 100%;
-      width: 100%;
-    }
-
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-bottom: 40px;
-    }
-
-    .stat-block {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-top: 3px solid var(--accent);
-      padding: 24px 20px;
-    }
-
-    .stat-val {
-      display: block;
-      font-family: var(--serif);
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: var(--ink);
-      line-height: 1;
-      letter-spacing: -0.02em;
-    }
-
-    .stat-lbl {
-      display: block;
-      margin-top: 6px;
-      font-size: 0.72rem;
-      font-weight: 500;
-      color: var(--muted);
-    }
-
-    .teach-table-wrap {
-      overflow-x: auto;
-      border: 1px solid var(--border);
-      margin-bottom: 40px;
-      background: var(--white);
-    }
-
-    table.teach {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.93rem;
-      min-width: 560px;
-    }
-
-    table.teach thead {
-      background: var(--bg2);
-      border-bottom: 2px solid var(--border);
-    }
-
-    table.teach th {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--sub);
-      padding: 13px 18px;
+      grid-row: auto;
       text-align: left;
     }
 
-    table.teach td {
-      padding: 12px 18px;
-      border-bottom: 1px solid var(--border);
-      color: var(--text);
-    }
+    .contact-row { grid-template-columns: 1fr; gap: 4px; }
 
-    table.teach tbody tr:last-child td { border-bottom: none; }
-    table.teach tbody tr:hover { background: #f4f6fb; }
-
-    .t-num {
-      text-align: right;
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .role-pi {
-      color: var(--ink);
-      font-weight: 600;
-    }
-
-    .role-ta { color: var(--muted); }
-
-    .quotes-label {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-
-    .quotes-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .quote-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      padding: 18px 20px;
-      font-family: var(--serif);
-      font-size: 1rem;
-      font-style: italic;
-      color: var(--sub);
-      line-height: 1.65;
-    }
-
-    /* ═══ SKILLS ═══ */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 48px;
-    }
-
-    .skill-group-title {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 14px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .skill-item {
-      font-size: 0.95rem;
-      color: var(--text);
-      padding: 8px 0;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .skill-item:last-child { border-bottom: none; }
-
-    .skill-item::before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-      opacity: 0.5;
-    }
-
-    /* ═══ CONTACT ═══ */
-    .contact-list {
-      display: flex;
-      flex-direction: column;
-      max-width: 560px;
-    }
-
-    .contact-row {
-      display: flex;
-      align-items: baseline;
-      gap: 28px;
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .contact-row:first-child { border-top: 1px solid var(--border); }
-
-    .contact-label {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      min-width: 110px;
-      flex-shrink: 0;
-    }
-
-    .contact-val {
-      font-size: 0.97rem;
-      color: var(--text);
-    }
-
-    .contact-val a {
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .contact-val a:hover { color: var(--ink); }
-
-    .contact-ext-links {
-      margin-top: 28px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    /* ═══ FOOTER ═══ */
     footer {
-      background: var(--accent2);
-      color: rgba(255,255,255,0.7);
-      padding: 22px 64px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      flex-direction: column;
+      text-align: center;
     }
+  }
 
-    /* ═══ MOBILE ═══ */
-    @media (max-width: 900px) {
-      .shell { grid-template-columns: 1fr; }
-
-      .sidebar {
-        position: static;
-        height: auto;
-        overflow: visible;
-        border-right: none;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .navbar { padding: 0 20px; }
-      .hero { padding: 40px 24px; }
-      .section { padding: 40px 24px; }
-
-      footer {
-        padding: 18px 24px;
-        flex-direction: column;
-        gap: 6px;
-        text-align: center;
-      }
-
-      .stats-row { grid-template-columns: 1fr 1fr; }
-      .quotes-grid { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: 1fr; gap: 28px; }
-      .navbar-links { gap: 16px; }
-      .navbar-email { display: none; }
-
-      .about-lead,
-      .about-body,
-      .teach-intro {
-        max-width: 100%;
-      }
+  @media print {
+    .navbar, .sidebar { display: none !important; }
+    .shell {
+      display: block;
+      margin: 0;
+      border: 0;
+      box-shadow: none;
     }
-  </style>
+    .section {
+      opacity: 1 !important;
+      transform: none !important;
+      padding: 24px 0;
+    }
+    footer {
+      background: white;
+      color: #555;
+      padding: 16px 0;
+    }
+  }
+</style>
+
+
+
 </head>
 <body>
 
@@ -852,18 +728,7 @@
 
     <main class="main">
 
-      <div class="hero">
-        <div class="hero-eyebrow">New Mexico State University · Water Science &amp; Management</div>
-        <h1 class="hero-name">Abdul Khaliq</h1>
-        <div class="hero-tags">
-          <span class="hero-tag">Environmental Economics</span>
-          <span class="hero-tag">Natural Resource Economics</span>
-          <span class="hero-tag">Energy Economics</span>
-          <span class="hero-tag">Institutional Analysis &amp; Regulation</span>
-        </div>
-      </div>
-
-      <section class="section" id="about">
+<section class="section" id="about">
         <div class="section-header">
           <h2 class="section-title">About</h2>
           <div class="section-rule"></div>
@@ -924,36 +789,40 @@
 <p class="pub-note">† denotes first and corresponding author.</p>
 
 <div class="pub-group-title">Peer-Reviewed Journal Articles</div>
-<ol class="pub-list" reversed start="6">
+<ol class="pub-list" reversed start="7">
   <li class="pub-item">
-    <div class="pub-text"><strong>Khaliq, A<sup>†</sup>.</strong>, &amp; Boufous, S. Do energy price shocks affect U.S. data center REIT returns? <em><span style="color:#1f4e79;">Finance Research Letters</span></em>, 2026. <br><a class="pub-doi" href="https://doi.org/10.1016/j.frl.2026.110191" target="_blank" rel="noopener">↗ DOI 10.1016/j.frl.2026.110191</a></div>
+    <div class="pub-text"><strong>Farooq, O.</strong>, &amp; <strong>Khaliq, A.</strong> Public banking in the US: An investigation of bank efficiency at the Bank of North Dakota. <em><span style="color:var(--crimson);">Applied Economics Letters</span></em>, 2026.<br><a class="pub-doi" href="https://doi.org/10.1080/13504851.2026.2681690" target="_blank" rel="noopener">↗ DOI 10.1080/13504851.2026.2681690</a></div>
   </li>
 
   <li class="pub-item">
-    <div class="pub-text"><strong>Khaliq, A<sup>†</sup>.</strong>, &amp; Farooq, O. Transition-induced financial volatility in Asian countries: Evidence from clean energy finance and portfolio flows. <em><span style="color:#1f4e79;">Finance Research Letters</span></em>, 2026.<br><a class="pub-doi" href="https://doi.org/10.1016/j.frl.2026.109885" target="_blank" rel="noopener">↗ DOI 10.1016/j.frl.2026.109885</a></div>
+    <div class="pub-text"><strong>Khaliq, A<sup>†</sup>.</strong>, &amp; Boufous, S. Do energy price shocks affect U.S. data center REIT returns? <em><span style="color:var(--crimson);">Finance Research Letters</span></em>, 2026. <br><a class="pub-doi" href="https://doi.org/10.1016/j.frl.2026.110191" target="_blank" rel="noopener">↗ DOI 10.1016/j.frl.2026.110191</a></div>
   </li>
 
   <li class="pub-item">
-    <div class="pub-text"><strong>Khaliq, A<sup>†</sup>.</strong>, Yaseen, M.R., &amp; Nisa, M. Assessing the environmental impact of international funding for clean energy R&amp;D in Asian economies. <em><span style="color:#1f4e79;">Quality &amp; Quantity</span></em>, 2026.<br><a class="pub-doi" href="https://doi.org/10.1007/s11135-026-02646-9" target="_blank" rel="noopener">↗ DOI 10.1007/s11135-026-02646-9</a></div>
+    <div class="pub-text"><strong>Khaliq, A<sup>†</sup>.</strong>, &amp; Farooq, O. Transition-induced financial volatility in Asian countries: Evidence from clean energy finance and portfolio flows. <em><span style="color:var(--crimson);">Finance Research Letters</span></em>, 2026.<br><a class="pub-doi" href="https://doi.org/10.1016/j.frl.2026.109885" target="_blank" rel="noopener">↗ DOI 10.1016/j.frl.2026.109885</a></div>
   </li>
 
   <li class="pub-item">
-    <div class="pub-text"><strong>Khaliq, A<sup>†</sup>.</strong>, &amp; Mamkhezri, J. The impact of renewable portfolio standards and land-use governance on CO₂ and gross total emissions in four U.S. regions. <em><span style="color:#1f4e79;">Applied Energy</span></em>, 2024.<br><a class="pub-doi" href="https://doi.org/10.1016/j.apenergy.2024.123832" target="_blank" rel="noopener">↗ DOI 10.1016/j.apenergy.2024.123832</a></div>
+    <div class="pub-text"><strong>Khaliq, A<sup>†</sup>.</strong>, Yaseen, M.R., &amp; Nisa, M. Assessing the environmental impact of international funding for clean energy R&amp;D in Asian economies. <em><span style="color:var(--crimson);">Quality &amp; Quantity</span></em>, 2026.<br><a class="pub-doi" href="https://doi.org/10.1007/s11135-026-02646-9" target="_blank" rel="noopener">↗ DOI 10.1007/s11135-026-02646-9</a></div>
   </li>
 
   <li class="pub-item">
-    <div class="pub-text"><strong>Khaliq, A<sup>†</sup>.</strong>, Atique, A., Hina, H., &amp; Bilal, A. Impact of electricity generation, consumption, energy trade, and ICT on the environment in Pakistan: A NARDL and ARDL analysis. <em><span style="color:#1f4e79;">International Journal of Sustainable Development and World Ecology</span></em>, 2024.<br><a class="pub-doi" href="https://doi.org/10.1080/13504509.2023.2277918" target="_blank" rel="noopener">↗ DOI 10.1080/13504509.2023.2277918</a></div>
+    <div class="pub-text"><strong>Khaliq, A<sup>†</sup>.</strong>, &amp; Mamkhezri, J. The impact of renewable portfolio standards and land-use governance on CO₂ and gross total emissions in four U.S. regions. <em><span style="color:var(--crimson);">Applied Energy</span></em>, 2024.<br><a class="pub-doi" href="https://doi.org/10.1016/j.apenergy.2024.123832" target="_blank" rel="noopener">↗ DOI 10.1016/j.apenergy.2024.123832</a></div>
   </li>
 
   <li class="pub-item">
-    <div class="pub-text"><strong>Khaliq, A<sup>†</sup>.</strong>, &amp; Mamkhezri, J. Asymmetrical analysis of economic complexity and economic freedom on environment in South Asia: A NARDL approach. <em><span style="color:#1f4e79;">Environmental Science and Pollution Research</span></em>, 2023.<br><a class="pub-doi" href="https://doi.org/10.1007/s11356-023-28481-1" target="_blank" rel="noopener">↗ DOI 10.1007/s11356-023-28481-1</a></div>
+    <div class="pub-text"><strong>Khaliq, A<sup>†</sup>.</strong>, Atique, A., Hina, H., &amp; Bilal, A. Impact of electricity generation, consumption, energy trade, and ICT on the environment in Pakistan: A NARDL and ARDL analysis. <em><span style="color:var(--crimson);">International Journal of Sustainable Development and World Ecology</span></em>, 2024.<br><a class="pub-doi" href="https://doi.org/10.1080/13504509.2023.2277918" target="_blank" rel="noopener">↗ DOI 10.1080/13504509.2023.2277918</a></div>
+  </li>
+
+  <li class="pub-item">
+    <div class="pub-text"><strong>Khaliq, A<sup>†</sup>.</strong>, &amp; Mamkhezri, J. Asymmetrical analysis of economic complexity and economic freedom on environment in South Asia: A NARDL approach. <em><span style="color:var(--crimson);">Environmental Science and Pollution Research</span></em>, 2023.<br><a class="pub-doi" href="https://doi.org/10.1007/s11356-023-28481-1" target="_blank" rel="noopener">↗ DOI 10.1007/s11356-023-28481-1</a></div>
   </li>
 </ol>
         <div class="pub-group-title">Working Papers</div>
         <ul class="wp-list">
+          <li class="wp-item"><strong>Khaliq, A<sup>†</sup>.</strong>, &amp; Boufous, S. <em>Natural gas prices and the offshore margin of drilling investment in Louisiana.</em> <span class="wp-badge">Revise and Resubmit (Invited), Applied Economics Letters</span></li>
+
           <li class="wp-item"><strong>Khaliq, A<sup>†</sup>.</strong>, &amp; Mamkhezri, J. <em>Assessing the impact of eminent domain reforms on renewable energy expansion: A U.S. state-level analysis.</em> <span class="wp-badge">Revision Submitted</span></li>
-          <li class="wp-item">Farooq, O., &amp; <strong>Khaliq, A.</strong> <em>Public Banking in the US: An Investigation of Bank Efficiency at the Bank of North
-Dakota</em> <span class="wp-badge">Revision Submitted</span></li>
           <li class="wp-item"><strong>Khaliq, A<sup>†</sup>.</strong>, &amp; Mamkhezri, J. <em>Assessing environmental impacts of electricity distribution losses and natural resources in Pakistan.</em> <span class="wp-badge">Under Review</span></li>
         </ul>
 
