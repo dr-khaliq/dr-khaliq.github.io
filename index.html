@@ -1065,19 +1065,7 @@
       color: var(--ink);
       line-height: .95;
     }
-
-    .spread-title::before {
-      content: 'Curriculum Vitae';
-      display: block;
-      margin-bottom: 17px;
-      font-size: .56rem;
-      font-weight: 600;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--accent-deep);
-    }
-
-    .spread-title::after {
+.spread-title::after {
       width: 62px;
       height: 3px;
       margin-top: 24px;
@@ -1168,11 +1156,22 @@
     }
 
     .edu-year {
+      grid-column: 2;
+      grid-row: 1;
+      justify-self: end;
+      text-align: right;
       color: var(--accent-deep);
+      white-space: nowrap;
     }
 
     .edu-loc {
+      grid-column: 2;
+      grid-row: 2;
+      justify-self: end;
+      align-self: start;
+      text-align: right;
       color: var(--muted);
+      white-space: nowrap;
     }
 
     /* Research */
@@ -1512,7 +1511,13 @@
 
       .edu-list { padding-left: 25px; }
       .edu-item { grid-template-columns: 1fr; }
-      .edu-year, .edu-loc { text-align: left; }
+      .edu-year,
+      .edu-loc {
+        grid-column: 1;
+        grid-row: auto;
+        justify-self: start;
+        text-align: left;
+      }
 
       .pub-item {
         grid-template-columns: 30px minmax(0, 1fr);
