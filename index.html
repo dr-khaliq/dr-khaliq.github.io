@@ -16,16 +16,16 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --paper: #fbf8f3;
-      --paper-soft: #f3eee7;
-      --ink: #1f252b;
-      --ink-soft: #4f5963;
-      --accent: #7a1f2b;
-      --accent-deep: #5d1520;
-      --accent-soft: #b7868d;
-      --accent-line: #d7b8bd;
-      --muted: #6f7882;
-      --hairline: #d8d1c8;
+      --paper: #fcfbf7;
+      --paper-soft: #f3f6f5;
+      --ink: #102a43;
+      --ink-soft: #486581;
+      --accent: #0f6b6d;
+      --accent-deep: #0b4f51;
+      --accent-soft: #d4a72c;
+      --accent-line: #c8d8d5;
+      --muted: #627d98;
+      --hairline: #d9e2ec;
       --serif: 'Cormorant Garamond', Georgia, serif;
       --sans: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
       --wide: 1360px;
@@ -56,7 +56,7 @@
 
     a:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 3px; }
 
-    ::selection { background: var(--ink); color: #fff; }
+    ::selection { background: var(--accent-deep); color: #fff; }
 
     .wrap {
       max-width: var(--wide);
@@ -78,10 +78,10 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(251, 248, 243, .96);
+      background: rgba(252, 251, 247, .96);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--hairline);
-      box-shadow: 0 4px 18px rgba(31, 37, 43, .04);
+      box-shadow: 0 4px 18px rgba(16, 42, 67, .06);
     }
 
     .topnav-inner {
