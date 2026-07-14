@@ -208,6 +208,38 @@
     color: var(--crimson);
   }
 
+
+  .profile-header {
+    padding: 38px 48px 24px;
+    background: var(--white);
+    border-bottom: 1px solid #ece8e4;
+  }
+
+  .profile-name {
+    font-family: var(--serif);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: .95;
+    letter-spacing: -.03em;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+
+  .profile-title {
+    margin-bottom: 8px;
+    font-size: .86rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--crimson);
+  }
+
+  .profile-institution {
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--sub);
+  }
+
   /* MAIN PAGE */
   .shell {
     display: block;
@@ -697,6 +729,10 @@
       padding-top: 0;
     }
 
+    .profile-header {
+      padding: 30px 28px 22px;
+    }
+
     .section {
       padding: 34px 28px 31px;
     }
@@ -715,6 +751,10 @@
 
     .sidebar > div:first-child {
       grid-column: auto;
+    }
+
+    .profile-name {
+      font-size: 2.45rem;
     }
 
     .stats-row {
@@ -837,6 +877,17 @@
     </aside>
 
     <main class="main">
+
+
+      <header class="profile-header">
+        <h1 class="profile-name">Abdul Khaliq</h1>
+        <div class="profile-title">Ph.D. Student</div>
+        <div class="profile-institution">
+          Water Science &amp; Management<br>
+          New Mexico State University<br>
+          Las Cruces, NM
+        </div>
+      </header>
 
 <section class="section" id="about">
         <div class="section-header">
