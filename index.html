@@ -104,28 +104,26 @@
       letter-spacing: .01em;
     }
 
-    .topnav-links { display: flex; align-items: center; gap: 20px; }
+    .topnav-links { display: flex; align-items: center; gap: 18px; }
 
     .topnav-profile-links {
       display: flex;
       align-items: center;
-      gap: 8px;
       padding-left: 18px;
       border-left: 1px solid rgba(216, 194, 143, .35);
     }
 
     .topnav-profile-links a {
-      color: #fffaf0;
-      border: 1px solid rgba(216, 194, 143, .55);
-      padding: 6px 9px;
-      line-height: 1;
+      color: #f3ead9;
+      padding: 4px 0;
+      line-height: 1.2;
+      border-bottom: 1px solid transparent;
     }
 
     .topnav-profile-links a:hover {
-      color: var(--ink);
-      background: var(--accent-soft);
-      border-color: var(--accent-soft);
+      color: #ffffff;
       text-decoration: none;
+      border-bottom-color: var(--accent);
     }
 
     .topnav-links a {
@@ -276,17 +274,6 @@
       top: 108px;
     }
 
-
-    .section-no {
-      display: block;
-      margin-bottom: 12px;
-      font-family: var(--sans);
-      font-size: .62rem;
-      font-weight: 600;
-      letter-spacing: .2em;
-      color: var(--accent-deep);
-    }
-
     .spread-title h2 {
       font-family: var(--serif);
       font-size: clamp(1.9rem, 2.6vw, 2.5rem);
@@ -397,7 +384,11 @@
       white-space: nowrap;
     }
 
-    .edu-inst { font-size: .95rem; font-weight: 400; }
+    .edu-inst {
+      font-size: .95rem;
+      font-weight: 500;
+      color: #5f7893;
+    }
 
     .edu-loc {
       grid-column: 2;
@@ -689,25 +680,36 @@
     .footer-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px 12px;
+      gap: 0;
       align-items: center;
+      justify-content: flex-end;
     }
 
     .footer-links a {
-      font-size: .62rem;
+      position: relative;
+      font-size: .64rem;
       font-weight: 600;
       letter-spacing: .15em;
       text-transform: uppercase;
-      color: #fffaf0;
-      border: 1px solid rgba(216, 194, 143, .45);
-      padding: 8px 11px;
+      color: #f5ead2;
+      padding: 4px 11px;
+      border: 0;
+    }
+
+    .footer-links a + a::before {
+      content: '·';
+      position: absolute;
+      left: -2px;
+      color: rgba(216, 194, 143, .60);
     }
 
     .footer-links a:hover {
-      color: var(--ink);
-      background: var(--accent-soft);
-      border-color: var(--accent-soft);
-      text-decoration: none;
+      color: #ffffff;
+      background: transparent;
+      border: 0;
+      text-decoration: underline;
+      text-decoration-color: var(--accent);
+      text-underline-offset: 4px;
     }
 
     /* ---------------- responsive ---------------- */
@@ -738,7 +740,7 @@
       .topnav-profile-links {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 7px;
+        gap: 0;
         padding-left: 0;
         border-left: 0;
       }
@@ -793,10 +795,6 @@
         <a href="#contact">Contact</a>
         <span class="topnav-profile-links">
           <a href="https://drive.google.com/file/d/1z27upIrUMBgzaQc4LzIZSjYV0tHkZQ_x/view?usp=drive_link" target="_blank" rel="noopener">CV</a>
-          <a href="https://scholar.google.com/citations?user=s14APysAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scholar</a>
-          <a href="https://orcid.org/0000-0002-2525-3536" target="_blank" rel="noopener">ORCID</a>
-          <a href="https://www.researchgate.net/profile/Abdul-Khaliq-54" target="_blank" rel="noopener">ResearchGate</a>
-          <a href="https://www.linkedin.com/in/abdulkhaliqbutt/" target="_blank" rel="noopener">LinkedIn</a>
         </span>
         <span class="topnav-email"><a href="mailto:akb@nmsu.edu">akb@nmsu.edu</a></span>
       </div>
@@ -818,7 +816,7 @@
     <section id="about" class="band">
       <div class="wrap spread reveal">
         <div class="spread-title-col">
-          <div class="spread-title"><span class="section-no">01</span><h2>About</h2></div>
+          <div class="spread-title"><h2>About</h2></div>
         </div>
         <div>
           <p class="about-lead">I am a Ph.D. student in Water Science and Management at New Mexico State University, with prior professional doctoral training in economic development.</p>
@@ -830,7 +828,7 @@
     <section id="education" class="band">
       <div class="wrap spread reveal">
         <div class="spread-title-col">
-          <div class="spread-title"><span class="section-no">02</span><h2>Education</h2></div>
+          <div class="spread-title"><h2>Education</h2></div>
         </div>
         <div>
           <ul class="edu-list">
@@ -866,7 +864,7 @@
     <section id="publications" class="band soft">
       <div class="wrap spread reveal">
         <div class="spread-title-col">
-          <div class="spread-title"><span class="section-no">03</span><h2>Research</h2></div>
+          <div class="spread-title"><h2>Research</h2></div>
         </div>
         <div>
           <p class="pub-note">† denotes first and corresponding author.</p>
@@ -930,7 +928,7 @@
     <section id="teaching" class="band soft">
       <div class="wrap spread reveal">
         <div class="spread-title-col">
-          <div class="spread-title"><span class="section-no">04</span><h2>Teaching</h2></div>
+          <div class="spread-title"><h2>Teaching</h2></div>
         </div>
         <div>
           <p class="teach-intro">I approach teaching with the conviction that students deserve clarity, structure, and a space where they can ask questions freely. I help students connect concepts, practise analytical tools, and build confidence across a range of economics courses at New Mexico State University and the University of New Mexico. My teaching philosophy is grounded in trust, respect, and confidentiality between instructors and students.</p>
@@ -999,7 +997,7 @@
     <section id="skills" class="band">
       <div class="wrap spread reveal">
         <div class="spread-title-col">
-          <div class="spread-title"><span class="section-no">05</span><h2>Technical Skills</h2></div>
+          <div class="spread-title"><h2>Technical Skills</h2></div>
         </div>
         <div>
           <div class="skills">
@@ -1035,7 +1033,7 @@
     <section id="contact" class="band soft">
       <div class="wrap spread reveal">
         <div class="spread-title-col">
-          <div class="spread-title"><span class="section-no">06</span><h2>Contact</h2></div>
+          <div class="spread-title"><h2>Contact</h2></div>
         </div>
         <div>
           <div class="contact">
