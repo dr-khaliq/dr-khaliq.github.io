@@ -293,21 +293,19 @@
   }
 
   /* ABOUT */
+  
   .about-lead {
-    max-width: 1050px;
-    margin-bottom: 13px;
+    max-width: 1080px;
+    margin-bottom: 21px;
+    padding-left: 18px;
+    border-left: 3px solid var(--crimson);
     font-family: var(--serif);
-    font-size: 1.47rem;
-    line-height: 1.55;
+    font-size: 1.38rem;
+    line-height: 1.62;
     color: var(--ink);
   }
+    
 
-  .about-body {
-    max-width: 1100px;
-    margin-bottom: 22px;
-    font-size: 1rem;
-    line-height: 1.86;
-  }
 
   .profile-links,
   .contact-ext-links {
@@ -730,7 +728,11 @@
     }
 
     .profile-header {
-      padding: 30px 28px 22px;
+      padding: 29px 28px 23px;
+    }
+
+    .profile-name {
+      font-size: 2.85rem;
     }
 
     .section {
@@ -755,6 +757,19 @@
 
     .profile-name {
       font-size: 2.45rem;
+    }
+
+    .profile-meta {
+      display: block;
+      line-height: 1.65;
+    }
+
+    .profile-meta span {
+      display: block;
+    }
+
+    .profile-meta span:not(:last-child)::after {
+      display: none;
     }
 
     .stats-row {
@@ -842,11 +857,6 @@
   <div class="shell">
 
     <aside class="sidebar">
-      <div>
-        <div class="sidebar-name">Abdul Khaliq</div>
-        <div class="sidebar-title">Ph.D. Student</div>
-        <div class="sidebar-inst">Water Science &amp; Management<br>New Mexico State University<br>Las Cruces, NM</div>
-      </div>
 
       <div class="sidebar-divider"></div>
 
@@ -894,8 +904,7 @@
           <h2 class="section-title">About</h2>
           <div class="section-rule"></div>
         </div>
-        <p class="about-lead">I am a Ph.D. student in Water Science and Management at New Mexico State University, with prior professional doctoral training in economic development.</p>
-        <p class="about-body">My primary research interests are in environmental and natural resource economics. My secondary interests include applied microeconomics and health economics. I am particularly interested in using empirical methods to understand how institutions, regulations, and governance influence natural resource, environmental, and health outcomes.
+        <p class="about-lead">My primary research interests are in environmental and natural resource economics. My secondary interests include applied microeconomics and health economics. I am particularly interested in using empirical methods to understand how institutions, regulations, and governance influence natural resource, environmental, and health outcomes.
 </p>
         <div class="profile-links">
           <a class="profile-link" href="https://drive.google.com/file/d/1z27upIrUMBgzaQc4LzIZSjYV0tHkZQ_x/view?usp=drive_link" target="_blank" rel="noopener">Curriculum Vitae</a>
