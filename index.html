@@ -10,23 +10,24 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500&family=Figtree:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --paper: #fefdfb;
-      --paper-soft: #faf8f3;
-      --navy: #17273f;
-      --navy-soft: #4b5568;
-      --gold: #8a6b1f;
-      --gold-soft: #c9ad63;
-      --gold-line: #e8ddc2;
-      --muted: #8d94a3;
-      --hairline: #ebe8e1;
-      --serif: 'Bodoni Moda', 'Didot', Georgia, serif;
-      --sans: 'Figtree', 'Helvetica Neue', Arial, sans-serif;
+      --paper: #fbf8f3;
+      --paper-soft: #f3eee7;
+      --ink: #1f252b;
+      --ink-soft: #4f5963;
+      --accent: #7a1f2b;
+      --accent-deep: #5d1520;
+      --accent-soft: #b7868d;
+      --accent-line: #d7b8bd;
+      --muted: #6f7882;
+      --hairline: #d8d1c8;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
       --wide: 1360px;
     }
 
@@ -34,28 +35,28 @@
 
     body {
       background: var(--paper);
-      color: var(--navy-soft);
+      color: var(--ink-soft);
       font-family: var(--sans);
       font-size: 16px;
       font-weight: 300;
-      line-height: 1.8;
+      line-height: 1.75;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
 
-    a { color: var(--navy); text-decoration: none; }
+    a { color: var(--ink); text-decoration: none; }
 
     a:hover {
-      color: var(--navy);
+      color: var(--ink);
       text-decoration: underline;
-      text-decoration-color: var(--gold-soft);
+      text-decoration-color: var(--accent-soft);
       text-decoration-thickness: 1.5px;
       text-underline-offset: 4px;
     }
 
-    a:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: 3px; }
+    a:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 3px; }
 
-    ::selection { background: var(--navy); color: #fff; }
+    ::selection { background: var(--ink); color: #fff; }
 
     .wrap {
       max-width: var(--wide);
@@ -77,9 +78,10 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(254, 253, 251, .92);
-      backdrop-filter: blur(12px);
+      background: rgba(251, 248, 243, .96);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--hairline);
+      box-shadow: 0 4px 18px rgba(31, 37, 43, .04);
     }
 
     .topnav-inner {
@@ -95,13 +97,30 @@
 
     .topnav-name {
       font-family: var(--serif);
-      font-size: 1.18rem;
-      font-weight: 500;
-      color: var(--navy);
+      font-size: 1.34rem;
+      font-weight: 600;
+      color: var(--ink);
       white-space: nowrap;
     }
 
-    .topnav-links { display: flex; align-items: center; gap: 26px; }
+    .topnav-links { display: flex; align-items: center; gap: 20px; }
+
+    .topnav-profile-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-left: 22px;
+      border-left: 1px solid var(--accent-line);
+    }
+
+    .topnav-profile-links a {
+      color: var(--accent-deep);
+    }
+
+    .topnav-profile-links a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
 
     .topnav-links a {
       font-size: .62rem;
@@ -114,17 +133,17 @@
     }
 
     .topnav-links a:hover {
-      color: var(--navy);
+      color: var(--ink);
       text-decoration: none;
-      border-bottom-color: var(--gold-soft);
+      border-bottom-color: var(--accent-soft);
     }
 
     .topnav-links a.active {
-      color: var(--navy);
-      border-bottom-color: var(--gold-soft);
+      color: var(--ink);
+      border-bottom-color: var(--accent-soft);
     }
 
-    .topnav-email { padding-left: 26px; border-left: 1px solid var(--gold-line); }
+    .topnav-email { padding-left: 26px; border-left: 1px solid var(--accent-line); }
 
     /* ---------------- masthead / hero ---------------- */
     .masthead {
@@ -141,7 +160,7 @@
     .h-anim { animation: rise .8s ease both; }
 
     .masthead .kicker {
-      color: var(--gold);
+      color: var(--accent-deep);
       animation-delay: .05s;
     }
 
@@ -151,8 +170,8 @@
       font-size: clamp(3.4rem, 9.5vw, 7.2rem);
       font-weight: 400;
       line-height: 1.02;
-      letter-spacing: .005em;
-      color: var(--navy);
+      letter-spacing: -.015em;
+      color: var(--ink);
       margin: 22px 0 26px;
       animation-delay: .15s;
     }
@@ -161,16 +180,16 @@
       font-size: .92rem;
       font-weight: 400;
       letter-spacing: .06em;
-      color: var(--navy-soft);
+      color: var(--ink-soft);
       animation-delay: .3s;
     }
 
-    .masthead .affiliation .sep { color: var(--gold-soft); padding: 0 14px; }
+    .masthead .affiliation .sep { color: var(--accent-soft); padding: 0 14px; }
 
     .masthead .gold-rule {
-      width: 72px;
-      height: 1.5px;
-      background: var(--gold-soft);
+      width: 84px;
+      height: 2px;
+      background: var(--accent-soft);
       margin: 34px auto;
       animation-delay: .42s;
     }
@@ -188,13 +207,13 @@
       font-weight: 600;
       letter-spacing: .2em;
       text-transform: uppercase;
-      color: var(--navy);
+      color: var(--ink);
     }
 
-    .masthead .profiles a:hover { color: var(--gold); text-decoration: none; }
+    .masthead .profiles a:hover { color: var(--accent); text-decoration: none; }
 
     .masthead .profiles .sep {
-      color: var(--gold-soft);
+      color: var(--accent-soft);
       padding: 0 18px;
       user-select: none;
     }
@@ -225,7 +244,7 @@
       font-size: clamp(1.9rem, 2.6vw, 2.5rem);
       font-weight: 400;
       line-height: 1.1;
-      color: var(--navy);
+      color: var(--ink);
     }
 
     .spread-title::after {
@@ -233,7 +252,7 @@
       display: block;
       width: 40px;
       height: 1.5px;
-      background: var(--gold-soft);
+      background: var(--accent-soft);
       margin-top: 20px;
     }
 
@@ -252,7 +271,7 @@
       font-size: clamp(1.35rem, 2vw, 1.7rem);
       font-weight: 400;
       line-height: 1.5;
-      color: var(--navy);
+      color: var(--ink);
       max-width: 30em;
       margin-bottom: 30px;
     }
@@ -268,7 +287,7 @@
       font-size: 3.6rem;
       font-weight: 500;
       line-height: .8;
-      color: var(--gold);
+      color: var(--accent);
       float: left;
       padding: 8px 12px 0 0;
     }
@@ -280,16 +299,16 @@
       font-weight: 600;
       letter-spacing: .18em;
       text-transform: uppercase;
-      color: var(--navy);
+      color: var(--ink);
       padding: 10px 18px;
-      border: 1px solid var(--gold-line);
+      border: 1px solid var(--accent-line);
       transition: border-color .2s, color .2s, background .2s;
     }
 
     .chip:hover {
-      border-color: var(--gold-soft);
-      color: var(--gold);
-      background: #fff;
+      border-color: var(--accent-soft);
+      color: var(--accent);
+      background: var(--paper);
       text-decoration: none;
     }
 
@@ -312,7 +331,7 @@
       font-family: var(--serif);
       font-size: 1.35rem;
       font-weight: 500;
-      color: var(--navy);
+      color: var(--ink);
     }
 
     .edu-year {
@@ -322,7 +341,7 @@
       font-weight: 600;
       letter-spacing: .18em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--accent);
       white-space: nowrap;
     }
 
@@ -352,7 +371,7 @@
       display: flex;
       align-items: center;
       gap: 18px;
-      color: var(--gold);
+      color: var(--accent);
       margin-bottom: 10px;
     }
 
@@ -360,7 +379,7 @@
       content: '';
       flex: 1;
       height: 1px;
-      background: var(--gold-line);
+      background: var(--accent-line);
     }
 
     .pub-list { list-style: none; }
@@ -378,19 +397,19 @@
       font-family: var(--serif);
       font-size: 1.02rem;
       font-weight: 500;
-      color: var(--gold);
+      color: var(--accent);
       line-height: 1.75;
     }
 
     .pub-text { font-size: .97rem; line-height: 1.75; }
 
-    .pub-text strong { font-weight: 600; color: var(--navy); }
+    .pub-text strong { font-weight: 600; color: var(--ink); }
 
     .pub-text em, .wp-item em {
       font-family: var(--serif);
       font-style: italic;
       font-size: 1.06em;
-      color: var(--navy);
+      color: var(--ink);
     }
 
     .pub-doi {
@@ -399,10 +418,10 @@
       font-size: .68rem;
       font-weight: 500;
       letter-spacing: .08em;
-      color: var(--gold);
+      color: var(--accent);
     }
 
-    .pub-doi:hover { color: var(--navy); text-decoration-color: var(--gold-soft); }
+    .pub-doi:hover { color: var(--ink); text-decoration-color: var(--accent-soft); }
 
     .wp-list { list-style: none; }
 
@@ -416,20 +435,20 @@
     .wp-item:first-child { padding-top: 8px; }
     .wp-item:last-child { border-bottom: 0; }
 
-    .wp-item strong { font-weight: 600; color: var(--navy); }
+    .wp-item strong { font-weight: 600; color: var(--ink); }
 
     .wp-badge {
       display: inline-block;
       margin-left: 12px;
       padding-left: 14px;
-      border-left: 1px solid var(--gold-line);
+      border-left: 1px solid var(--accent-line);
       font-family: var(--sans);
       font-size: .58rem;
       font-weight: 600;
       font-style: normal;
       letter-spacing: .16em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--accent);
       vertical-align: 1px;
     }
 
@@ -444,7 +463,7 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 28px 44px;
-      border-top: 1px solid var(--gold-line);
+      border-top: 1px solid var(--accent-line);
       padding-top: 32px;
       margin-bottom: 56px;
     }
@@ -455,7 +474,7 @@
       font-size: clamp(2.6rem, 3.4vw, 3.4rem);
       font-weight: 400;
       line-height: 1;
-      color: var(--navy);
+      color: var(--ink);
     }
 
     .stat span {
@@ -465,7 +484,7 @@
       font-weight: 600;
       letter-spacing: .16em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--accent);
     }
 
     .table-wrap { overflow-x: auto; margin-bottom: 56px; }
@@ -483,10 +502,10 @@
       font-weight: 600;
       letter-spacing: .18em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--accent);
       text-align: left;
       padding: 0 16px 14px;
-      border-bottom: 1px solid var(--gold-soft);
+      border-bottom: 1px solid var(--accent-soft);
     }
 
     table.airy td {
@@ -495,19 +514,19 @@
     }
 
     table.airy tbody tr:last-child td { border-bottom: 0; }
-    table.airy tbody tr:hover td { background: #fff; }
+    table.airy tbody tr:hover td { background: var(--paper); }
 
     .t-num { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); }
-    th.t-num { color: var(--gold); }
+    th.t-num { color: var(--accent); }
 
-    .role-pi { font-weight: 600; color: var(--navy); }
+    .role-pi { font-weight: 600; color: var(--ink); }
     .role-ta { color: var(--muted); }
 
     .quotes-head {
       display: flex;
       align-items: center;
       gap: 18px;
-      color: var(--gold);
+      color: var(--accent);
       margin-bottom: 34px;
     }
 
@@ -515,7 +534,7 @@
       content: '';
       flex: 1;
       height: 1px;
-      background: var(--gold-line);
+      background: var(--accent-line);
     }
 
     .quotes { columns: 3 290px; column-gap: 56px; }
@@ -528,7 +547,7 @@
       font-size: 1.08rem;
       font-weight: 400;
       line-height: 1.6;
-      color: var(--navy-soft);
+      color: var(--ink-soft);
     }
 
     .quote::before {
@@ -536,7 +555,7 @@
       display: block;
       width: 28px;
       height: 1.5px;
-      background: var(--gold-soft);
+      background: var(--accent-soft);
       margin-bottom: 14px;
     }
 
@@ -548,9 +567,9 @@
     }
 
     .skill-col-title {
-      color: var(--gold);
+      color: var(--accent);
       padding-bottom: 14px;
-      border-bottom: 1px solid var(--gold-line);
+      border-bottom: 1px solid var(--accent-line);
     }
 
     .skill-col ul { list-style: none; }
@@ -560,7 +579,7 @@
       border-bottom: 1px solid var(--hairline);
       font-size: .98rem;
       font-weight: 400;
-      color: var(--navy-soft);
+      color: var(--ink-soft);
     }
 
     .skill-col li:last-child { border-bottom: 0; }
@@ -580,7 +599,7 @@
     .contact-row:first-child { padding-top: 4px; }
     .contact-row:last-child { border-bottom: 0; }
 
-    .contact-label { color: var(--gold); }
+    .contact-label { color: var(--accent); }
 
     .contact-val { font-size: 1rem; font-weight: 400; }
 
@@ -590,12 +609,46 @@
     .footer-inner {
       max-width: var(--wide);
       margin: 0 auto;
-      padding: 34px clamp(24px, 5vw, 72px) 56px;
+      padding: 34px clamp(24px, 5vw, 72px) 52px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 10px 28px;
+      gap: 22px 36px;
       color: var(--muted);
+    }
+
+    .footer-identity {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .footer-affiliation {
+      font-family: var(--serif);
+      font-size: 1.02rem;
+      font-style: italic;
+      color: var(--ink-soft);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      align-items: center;
+    }
+
+    .footer-links a {
+      font-size: .64rem;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+      text-decoration-color: var(--accent-soft);
     }
 
     /* ---------------- responsive ---------------- */
@@ -623,9 +676,19 @@
 
       .topnav-email { display: none; }
       .topnav-links { flex-wrap: wrap; justify-content: center; gap: 6px 18px; }
+      .topnav-profile-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px 16px;
+        padding-left: 0;
+        border-left: 0;
+      }
 
       .stats { grid-template-columns: 1fr 1fr; }
       .skills { grid-template-columns: 1fr; gap: 34px; }
+      .footer-inner { justify-content: center; text-align: center; }
+      .footer-identity { align-items: center; }
+      .footer-links { justify-content: center; }
     }
 
     @media (max-width: 560px) {
@@ -653,7 +716,7 @@
       .h-anim { animation: none; }
       .spread { grid-template-columns: 1fr; padding: 28px 0; }
       .spread-title { position: static; }
-      body { background: #fff; }
+      body { background: var(--paper); }
     }
   </style>
 </head>
@@ -669,6 +732,13 @@
         <a href="#teaching">Teaching</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
+        <span class="topnav-profile-links">
+          <a href="https://drive.google.com/file/d/1z27upIrUMBgzaQc4LzIZSjYV0tHkZQ_x/view?usp=drive_link" target="_blank" rel="noopener">CV</a>
+          <a href="https://scholar.google.com/citations?user=s14APysAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scholar</a>
+          <a href="https://orcid.org/0000-0002-2525-3536" target="_blank" rel="noopener">ORCID</a>
+          <a href="https://www.researchgate.net/profile/Abdul-Khaliq-54" target="_blank" rel="noopener">ResearchGate</a>
+          <a href="https://www.linkedin.com/in/abdulkhaliqbutt/" target="_blank" rel="noopener">LinkedIn</a>
+        </span>
         <span class="topnav-email"><a href="mailto:akb@nmsu.edu">akb@nmsu.edu</a></span>
       </div>
     </div>
@@ -680,13 +750,6 @@
       <h1 class="h-anim">Abdul Khaliq</h1>
       <div class="affiliation h-anim">Water Science &amp; Management<span class="sep">·</span>New Mexico State University<span class="sep">·</span>Las Cruces, NM</div>
       <div class="gold-rule h-anim"></div>
-      <div class="profiles h-anim">
-        <a href="https://drive.google.com/file/d/1s-xZhpmjWXw7IpoPKxAnQNw02HHDIQSS/view?usp=drive_link">Curriculum Vitae</a><span class="sep">·</span>
-        <a href="https://scholar.google.com/citations?user=s14APysAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a><span class="sep">·</span>
-        <a href="https://orcid.org/0000-0002-2525-3536" target="_blank" rel="noopener">ORCID</a><span class="sep">·</span>
-        <a href="https://www.researchgate.net/profile/Abdul-Khaliq-54" target="_blank" rel="noopener">ResearchGate</a><span class="sep">·</span>
-        <a href="https://www.linkedin.com/in/abdulkhaliqbutt/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
     </div>
   </header>
 
@@ -700,13 +763,6 @@
         <div>
           <p class="about-lead">I am a Ph.D. student in Water Science and Management at New Mexico State University, with prior professional doctoral training in economic development.</p>
           <p class="about-body">My primary research interests are in environmental and natural resource economics. My secondary interests include applied microeconomics and health economics. I am particularly interested in using empirical methods to understand how institutions, regulations, and governance influence natural resource, environmental, and health outcomes.</p>
-          <div class="chip-links">
-            <a class="chip" href="https://drive.google.com/file/d/1z27upIrUMBgzaQc4LzIZSjYV0tHkZQ_x/view?usp=drive_link" target="_blank" rel="noopener">Curriculum Vitae</a>
-            <a class="chip" href="https://scholar.google.com/citations?user=s14APysAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
-            <a class="chip" href="https://orcid.org/0000-0002-2525-3536" target="_blank" rel="noopener">ORCID</a>
-            <a class="chip" href="https://www.researchgate.net/profile/Abdul-Khaliq-54" target="_blank" rel="noopener">ResearchGate</a>
-            <a class="chip" href="https://www.linkedin.com/in/abdulkhaliqbutt/" target="_blank" rel="noopener">LinkedIn</a>
-          </div>
         </div>
       </div>
     </section>
@@ -943,9 +999,18 @@
   </main>
 
   <footer>
-    <div class="footer-inner caps">
-      <span>© 2026 Abdul Khaliq</span>
-      <span>New Mexico State University · Las Cruces, New Mexico</span>
+    <div class="footer-inner">
+      <div class="footer-identity">
+        <span class="caps">© 2026 Abdul Khaliq</span>
+        <span class="footer-affiliation">New Mexico State University · Las Cruces, New Mexico</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://drive.google.com/file/d/1z27upIrUMBgzaQc4LzIZSjYV0tHkZQ_x/view?usp=drive_link" target="_blank" rel="noopener">CV</a>
+        <a href="https://scholar.google.com/citations?user=s14APysAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scholar</a>
+        <a href="https://orcid.org/0000-0002-2525-3536" target="_blank" rel="noopener">ORCID</a>
+        <a href="https://www.researchgate.net/profile/Abdul-Khaliq-54" target="_blank" rel="noopener">ResearchGate</a>
+        <a href="https://www.linkedin.com/in/abdulkhaliqbutt/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
     </div>
   </footer>
 
