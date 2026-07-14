@@ -16,16 +16,16 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --paper: #fcfbf7;
-      --paper-soft: #f3f6f5;
-      --ink: #102a43;
-      --ink-soft: #486581;
-      --accent: #0f6b6d;
-      --accent-deep: #0b4f51;
-      --accent-soft: #d4a72c;
-      --accent-line: #c8d8d5;
-      --muted: #627d98;
-      --hairline: #d9e2ec;
+      --paper: #fbf7ef;
+      --paper-soft: #eef2f6;
+      --ink: #10233f;
+      --ink-soft: #41546f;
+      --accent: #b08a3e;
+      --accent-deep: #8d6a24;
+      --accent-soft: #d8c28f;
+      --accent-line: #c9d3df;
+      --muted: #69788c;
+      --hairline: #d9e0e7;
       --serif: 'Cormorant Garamond', Georgia, serif;
       --sans: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
       --wide: 1360px;
@@ -78,10 +78,10 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(252, 251, 247, .96);
+      background: rgba(16, 35, 63, .97);
       backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--hairline);
-      box-shadow: 0 4px 18px rgba(16, 42, 67, .06);
+      border-bottom: 1px solid rgba(216, 194, 143, .25);
+      box-shadow: 0 6px 22px rgba(16, 35, 63, .16);
     }
 
     .topnav-inner {
@@ -97,10 +97,11 @@
 
     .topnav-name {
       font-family: var(--serif);
-      font-size: 1.34rem;
+      font-size: 1.4rem;
       font-weight: 600;
-      color: var(--ink);
+      color: #fffaf0;
       white-space: nowrap;
+      letter-spacing: .01em;
     }
 
     .topnav-links { display: flex; align-items: center; gap: 20px; }
@@ -108,48 +109,74 @@
     .topnav-profile-links {
       display: flex;
       align-items: center;
-      gap: 16px;
-      padding-left: 22px;
-      border-left: 1px solid var(--accent-line);
+      gap: 8px;
+      padding-left: 18px;
+      border-left: 1px solid rgba(216, 194, 143, .35);
     }
 
     .topnav-profile-links a {
-      color: var(--accent-deep);
+      color: #fffaf0;
+      border: 1px solid rgba(216, 194, 143, .55);
+      padding: 6px 9px;
+      line-height: 1;
     }
 
     .topnav-profile-links a:hover {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
+      color: var(--ink);
+      background: var(--accent-soft);
+      border-color: var(--accent-soft);
+      text-decoration: none;
     }
 
     .topnav-links a {
-      font-size: .62rem;
+      font-size: .61rem;
       font-weight: 600;
-      letter-spacing: .2em;
+      letter-spacing: .18em;
       text-transform: uppercase;
-      color: var(--muted);
-      padding: 4px 0;
+      color: #dbe4ef;
+      padding: 5px 0;
       border-bottom: 1.5px solid transparent;
     }
 
     .topnav-links a:hover {
-      color: var(--ink);
+      color: #fffaf0;
       text-decoration: none;
       border-bottom-color: var(--accent-soft);
     }
 
     .topnav-links a.active {
-      color: var(--ink);
-      border-bottom-color: var(--accent-soft);
+      color: #fffaf0;
+      border-bottom-color: var(--accent);
     }
 
-    .topnav-email { padding-left: 26px; border-left: 1px solid var(--accent-line); }
+    .topnav-email { padding-left: 20px; border-left: 1px solid rgba(216, 194, 143, .35); }
 
     /* ---------------- masthead / hero ---------------- */
     .masthead {
+      position: relative;
+      overflow: hidden;
       text-align: center;
-      padding: clamp(72px, 10vw, 128px) 0 clamp(64px, 8vw, 104px);
+      padding: clamp(88px, 11vw, 144px) 0 clamp(76px, 9vw, 118px);
       border-bottom: 1px solid var(--hairline);
+      background:
+        radial-gradient(circle at 50% 10%, rgba(176, 138, 62, .10), transparent 34%),
+        linear-gradient(180deg, #fbf7ef 0%, #f5f7fa 100%);
+    }
+
+    .masthead::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(16, 35, 63, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 35, 63, .025) 1px, transparent 1px);
+      background-size: 34px 34px;
+      pointer-events: none;
+    }
+
+    .masthead .wrap {
+      position: relative;
+      z-index: 1;
     }
 
     @keyframes rise {
@@ -167,12 +194,12 @@
     .masthead h1 {
       font-family: var(--serif);
       font-optical-sizing: auto;
-      font-size: clamp(3.4rem, 9.5vw, 7.2rem);
+      font-size: clamp(3.8rem, 9.8vw, 7.8rem);
       font-weight: 400;
       line-height: 1.02;
       letter-spacing: -.015em;
       color: var(--ink);
-      margin: 22px 0 26px;
+      margin: 20px 0 22px;
       animation-delay: .15s;
     }
 
@@ -185,6 +212,16 @@
     }
 
     .masthead .affiliation .sep { color: var(--accent-soft); padding: 0 14px; }
+
+    .masthead .descriptor {
+      margin-top: 18px;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+      animation-delay: .36s;
+    }
 
     .masthead .gold-rule {
       width: 84px;
@@ -239,6 +276,17 @@
       top: 108px;
     }
 
+
+    .section-no {
+      display: block;
+      margin-bottom: 12px;
+      font-family: var(--sans);
+      font-size: .62rem;
+      font-weight: 600;
+      letter-spacing: .2em;
+      color: var(--accent-deep);
+    }
+
     .spread-title h2 {
       font-family: var(--serif);
       font-size: clamp(1.9rem, 2.6vw, 2.5rem);
@@ -277,9 +325,13 @@
     }
 
     .about-body {
-      font-size: 1rem;
-      max-width: 62ch;
+      font-size: 1.22rem;
+      line-height: 1.9;
+      max-width: none;
+      width: 100%;
       margin-bottom: 38px;
+      text-align: justify;
+      text-wrap: pretty;
     }
 
     .about-body::first-letter {
@@ -604,51 +656,58 @@
     .contact-val { font-size: 1rem; font-weight: 400; }
 
     /* ---------------- footer ---------------- */
-    footer { border-top: 1px solid var(--hairline); }
+    footer {
+      border-top: 1px solid rgba(216, 194, 143, .28);
+      background: var(--ink);
+    }
 
     .footer-inner {
       max-width: var(--wide);
       margin: 0 auto;
-      padding: 34px clamp(24px, 5vw, 72px) 52px;
+      padding: 44px clamp(24px, 5vw, 72px) 54px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 22px 36px;
-      color: var(--muted);
+      gap: 24px 40px;
+      color: #c8d2df;
     }
 
     .footer-identity {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 7px;
     }
 
     .footer-affiliation {
       font-family: var(--serif);
-      font-size: 1.02rem;
+      font-size: 1.08rem;
       font-style: italic;
-      color: var(--ink-soft);
+      color: #f5ead2;
     }
 
     .footer-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px 22px;
+      gap: 10px 12px;
       align-items: center;
     }
 
     .footer-links a {
-      font-size: .64rem;
+      font-size: .62rem;
       font-weight: 600;
-      letter-spacing: .16em;
+      letter-spacing: .15em;
       text-transform: uppercase;
-      color: var(--accent-deep);
+      color: #fffaf0;
+      border: 1px solid rgba(216, 194, 143, .45);
+      padding: 8px 11px;
     }
 
     .footer-links a:hover {
-      color: var(--accent);
-      text-decoration-color: var(--accent-soft);
+      color: var(--ink);
+      background: var(--accent-soft);
+      border-color: var(--accent-soft);
+      text-decoration: none;
     }
 
     /* ---------------- responsive ---------------- */
@@ -679,7 +738,7 @@
       .topnav-profile-links {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 6px 16px;
+        gap: 7px;
         padding-left: 0;
         border-left: 0;
       }
@@ -692,8 +751,8 @@
     }
 
     @media (max-width: 560px) {
-      .masthead .profiles .sep { padding: 0 10px; }
       .masthead .affiliation .sep { display: block; height: 6px; overflow: hidden; color: transparent; }
+      .masthead .descriptor { line-height: 1.8; }
 
       .edu-item { grid-template-columns: 1fr; }
       .edu-year, .edu-loc { grid-column: 1; grid-row: auto; text-align: left; }
@@ -749,6 +808,7 @@
       <div class="kicker caps h-anim">Ph.D. Student</div>
       <h1 class="h-anim">Abdul Khaliq</h1>
       <div class="affiliation h-anim">Water Science &amp; Management<span class="sep">·</span>New Mexico State University<span class="sep">·</span>Las Cruces, NM</div>
+      <div class="descriptor h-anim">Environmental Economics · Natural Resource Economics · Applied Microeconomics</div>
       <div class="gold-rule h-anim"></div>
     </div>
   </header>
@@ -758,7 +818,7 @@
     <section id="about" class="band">
       <div class="wrap spread reveal">
         <div class="spread-title-col">
-          <div class="spread-title"><h2>About</h2></div>
+          <div class="spread-title"><span class="section-no">01</span><h2>About</h2></div>
         </div>
         <div>
           <p class="about-lead">I am a Ph.D. student in Water Science and Management at New Mexico State University, with prior professional doctoral training in economic development.</p>
@@ -770,7 +830,7 @@
     <section id="education" class="band">
       <div class="wrap spread reveal">
         <div class="spread-title-col">
-          <div class="spread-title"><h2>Education</h2></div>
+          <div class="spread-title"><span class="section-no">02</span><h2>Education</h2></div>
         </div>
         <div>
           <ul class="edu-list">
@@ -803,10 +863,10 @@
       </div>
     </section>
 
-    <section id="publications" class="band">
+    <section id="publications" class="band soft">
       <div class="wrap spread reveal">
         <div class="spread-title-col">
-          <div class="spread-title"><h2>Research</h2></div>
+          <div class="spread-title"><span class="section-no">03</span><h2>Research</h2></div>
         </div>
         <div>
           <p class="pub-note">† denotes first and corresponding author.</p>
@@ -870,7 +930,7 @@
     <section id="teaching" class="band soft">
       <div class="wrap spread reveal">
         <div class="spread-title-col">
-          <div class="spread-title"><h2>Teaching</h2></div>
+          <div class="spread-title"><span class="section-no">04</span><h2>Teaching</h2></div>
         </div>
         <div>
           <p class="teach-intro">I approach teaching with the conviction that students deserve clarity, structure, and a space where they can ask questions freely. I help students connect concepts, practise analytical tools, and build confidence across a range of economics courses at New Mexico State University and the University of New Mexico. My teaching philosophy is grounded in trust, respect, and confidentiality between instructors and students.</p>
@@ -939,7 +999,7 @@
     <section id="skills" class="band">
       <div class="wrap spread reveal">
         <div class="spread-title-col">
-          <div class="spread-title"><h2>Technical Skills</h2></div>
+          <div class="spread-title"><span class="section-no">05</span><h2>Technical Skills</h2></div>
         </div>
         <div>
           <div class="skills">
@@ -972,10 +1032,10 @@
       </div>
     </section>
 
-    <section id="contact" class="band">
+    <section id="contact" class="band soft">
       <div class="wrap spread reveal">
         <div class="spread-title-col">
-          <div class="spread-title"><h2>Contact</h2></div>
+          <div class="spread-title"><span class="section-no">06</span><h2>Contact</h2></div>
         </div>
         <div>
           <div class="contact">
