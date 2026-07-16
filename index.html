@@ -103,20 +103,21 @@
 
   /* ---------- Frame: fixed rail + scrolling page ---------- */
   .frame {
-    min-height: 100vh;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
   }
 
   /* ---------- Sidebar — fixed title page, always in view ---------- */
   .side {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
+    position: relative;
     width: 330px;
-    overflow-y: auto;
+    height: 100vh;
+    flex: 0 0 330px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    padding: 54px 42px 34px;
+    padding: 42px 42px 26px;
     border-right: 1px solid var(--line);
     background: var(--paper);
     z-index: 15;
@@ -193,7 +194,7 @@
   }
 
   .side-nav {
-    margin-top: 34px;
+    margin-top: 26px;
   }
 
   .side-nav ul {
@@ -235,8 +236,8 @@
   }
 
   .side-meta {
-    margin-top: auto;
-    padding-top: 26px;
+    margin-top: 24px;
+    padding-top: 18px;
     border-top: 1px solid var(--line-soft);
   }
 
@@ -249,19 +250,22 @@
   }
 
   .side-links {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 7px 16px;
+    display: none;
+    flex-wrap: wrap;
+    gap: 8px 14px;
     margin-top: 14px;
   }
 
   .side-links a {
+    display: inline-flex;
+    align-items: center;
     font-family: var(--mono);
-    font-size: 0.62rem;
+    font-size: 0.59rem;
     font-weight: 500;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--sub);
+    white-space: nowrap;
   }
 
   .side-links a::after {
@@ -280,7 +284,8 @@
   }
 
   .side-foot {
-    margin-top: 22px;
+    margin-top: auto;
+    padding-top: 22px;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -297,10 +302,113 @@
     color: var(--faint);
   }
 
+
+  /* ---------- Fixed profile header ---------- */
+  .profile-header {
+    position: fixed;
+    top: 0;
+    left: 330px;
+    right: 0;
+    z-index: 25;
+    margin: 0;
+    padding: 14px clamp(28px, 6vw, 92px);
+    background: rgba(140, 11, 45, 0.98);
+    border-bottom: 1px solid rgba(109, 9, 34, 0.75);
+    backdrop-filter: blur(10px);
+  }
+
+  .profile-header-inner {
+    max-width: 730px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+  }
+
+  .profile-header-label {
+    margin-right: 4px;
+    color: #F1DDE3;
+  }
+
+  .profile-header a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 9px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    font-family: var(--mono);
+    font-size: 0.59rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    white-space: nowrap;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .profile-header a::after {
+    content: "↗";
+    color: #E8C7D1;
+  }
+
+  .profile-header a:hover {
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.38);
+    background: rgba(255, 255, 255, 0.09);
+    text-decoration: none;
+  }
+
+  .profile-header a:hover::after {
+    color: #FFFFFF;
+  }
+
+  /* ---------- Footer profiles ---------- */
+  .footer-profiles {
+    max-width: 730px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 14px;
+    margin-top: 58px;
+    padding: 20px 0 4px;
+    border-top: 1px solid var(--line);
+  }
+
+  .footer-profiles-label {
+    margin-right: 4px;
+    color: var(--faint);
+  }
+
+  .footer-profiles a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--mono);
+    font-size: 0.59rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .footer-profiles a::after {
+    content: "↗";
+    color: var(--crimson);
+  }
+
+  .footer-profiles a:hover {
+    color: var(--crimson-deep);
+    text-decoration: none;
+  }
+
   /* ---------- Content column ---------- */
   .content {
-    margin-left: 330px;
-    padding: 74px clamp(28px, 6vw, 92px) 44px;
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+    margin-left: 0;
+    padding: 128px clamp(28px, 6vw, 92px) 44px;
   }
 
   .sec {
@@ -939,6 +1047,12 @@
 
   /* ---------- Responsive ---------- */
   @media (max-width: 980px) {
+    .frame {
+      display: block;
+      height: auto;
+      overflow: visible;
+    }
+
     .side {
       position: static;
       width: auto;
@@ -950,7 +1064,14 @@
     }
 
     .content {
+      height: auto;
+      overflow: visible;
       margin-left: 0;
+      padding-top: 122px;
+    }
+
+    .profile-header {
+      left: 0;
     }
 
     .side-fields {
@@ -1043,7 +1164,35 @@
     }
   }
 
+
   @media (max-width: 620px) {
+    .profile-header {
+      margin: 0;
+      padding: 12px 22px;
+    }
+
+    .profile-header-inner {
+      gap: 6px 7px;
+    }
+
+    .profile-header-label {
+      width: 100%;
+      margin-bottom: 2px;
+    }
+
+    .profile-header a {
+      padding: 4px 7px;
+      font-size: 0.55rem;
+    }
+
+    .footer-profiles {
+      gap: 7px 12px;
+    }
+
+    .footer-profiles-label {
+      width: 100%;
+    }
+
     .side-name {
       font-size: 2rem;
     }
@@ -1072,6 +1221,19 @@
   }
 
   @media print {
+    .profile-header {
+      position: static;
+      margin: 0 0 30px;
+      background: #fff;
+      border: 1px solid #000;
+    }
+
+    .profile-header-label,
+    .profile-header a,
+    .profile-header a::after {
+      color: #000;
+    }
+
     .side {
       position: static;
       width: auto;
@@ -1167,6 +1329,17 @@
     </aside>
 
     <main class="content">
+
+      <div class="profile-header" aria-label="Professional profiles">
+        <div class="profile-header-inner">
+          <span class="profile-header-label caps">Profiles</span>
+          <a href="https://drive.google.com/file/d/1z27upIrUMBgzaQc4LzIZSjYV0tHkZQ_x/view?usp=drive_link" target="_blank" rel="noopener">CV</a>
+          <a href="https://scholar.google.com/citations?user=s14APysAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+          <a href="https://orcid.org/0000-0002-2525-3536" target="_blank" rel="noopener">ORCID</a>
+          <a href="https://www.researchgate.net/profile/Abdul-Khaliq-54" target="_blank" rel="noopener">ResearchGate</a>
+          <a href="https://www.linkedin.com/in/abdulkhaliqbutt/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
 
       <section id="about" class="sec rv">
         <h2>About</h2>
@@ -1387,6 +1560,15 @@
         </div>
       </section>
 
+      <div class="footer-profiles" aria-label="Professional profile links">
+        <span class="footer-profiles-label caps">Profiles</span>
+        <a href="https://drive.google.com/file/d/1z27upIrUMBgzaQc4LzIZSjYV0tHkZQ_x/view?usp=drive_link" target="_blank" rel="noopener">CV</a>
+        <a href="https://scholar.google.com/citations?user=s14APysAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://orcid.org/0000-0002-2525-3536" target="_blank" rel="noopener">ORCID</a>
+        <a href="https://www.researchgate.net/profile/Abdul-Khaliq-54" target="_blank" rel="noopener">ResearchGate</a>
+        <a href="https://www.linkedin.com/in/abdulkhaliqbutt/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+
       <div class="mobile-foot">
         <span class="caps">© 2026 Abdul Khaliq</span>
         <span class="mobile-foot-affil">New Mexico State University · Las Cruces, New Mexico</span>
@@ -1418,20 +1600,53 @@
     /* --- Reading progress + back to top --- */
     const bar = document.getElementById('progressBar');
     const toTop = document.getElementById('toTop');
+    const contentScroller = document.querySelector('.content');
+    const desktopLayout = window.matchMedia('(min-width: 981px)');
     let ticking = false;
-    function paintScroll() {
+
+    function getScrollState() {
+      if (desktopLayout.matches) {
+        return {
+          top: contentScroller.scrollTop,
+          max: contentScroller.scrollHeight - contentScroller.clientHeight
+        };
+      }
+
       const h = document.documentElement;
-      const max = h.scrollHeight - h.clientHeight;
-      bar.style.transform = 'scaleX(' + (max > 0 ? h.scrollTop / max : 0) + ')';
-      toTop.classList.toggle('show', h.scrollTop > 600);
+      return {
+        top: h.scrollTop,
+        max: h.scrollHeight - h.clientHeight
+      };
+    }
+
+    function paintScroll() {
+      const state = getScrollState();
+      bar.style.transform = 'scaleX(' + (state.max > 0 ? state.top / state.max : 0) + ')';
+      toTop.classList.toggle('show', state.top > 600);
       ticking = false;
     }
-    window.addEventListener('scroll', () => {
-      if (!ticking) { ticking = true; requestAnimationFrame(paintScroll); }
-    }, { passive: true });
+
+    function requestScrollPaint() {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(paintScroll);
+      }
+    }
+
+    contentScroller.addEventListener('scroll', requestScrollPaint, { passive: true });
+    window.addEventListener('scroll', requestScrollPaint, { passive: true });
+    window.addEventListener('resize', requestScrollPaint, { passive: true });
+
     paintScroll();
+
     toTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+      const behavior = reduceMotion ? 'auto' : 'smooth';
+
+      if (desktopLayout.matches) {
+        contentScroller.scrollTo({ top: 0, behavior });
+      } else {
+        window.scrollTo({ top: 0, behavior });
+      }
     });
 
     /* --- Scroll reveal --- */
