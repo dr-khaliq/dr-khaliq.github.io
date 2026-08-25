@@ -75,6 +75,36 @@
   .pill b { font-family: var(--disp); font-weight: 800; font-size: 1.35rem; color: var(--brand); font-variant-numeric: tabular-nums; }
   .pill span { font-size: 0.82rem; color: var(--faint); font-weight: 500; }
 
+  /* Profile picture */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 220px;
+    gap: clamp(28px, 5vw, 64px);
+    align-items: center;
+  }
+  .hero-copy { min-width: 0; }
+  .hero-photo-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero-photo {
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border: 6px solid #fff;
+    box-shadow: 0 0 0 2px var(--brand-tint), var(--shadow-lg);
+    background: var(--line-soft);
+  }
+  @media (max-width: 760px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-photo-wrap { grid-row: 1; justify-content: flex-start; }
+    .hero-photo { width: 150px; height: 150px; }
+  }
+
   /* Sections */
   .sec { padding: clamp(46px,6vw,78px) 0; border-top: 1px solid var(--line); }
   .sec-head { margin-bottom: 30px; }
@@ -261,16 +291,29 @@
   <main>
     <section id="top" class="hero">
       <div class="wrap">
-        <span class="hero-badge"><span class="dot"></span>New Mexico State University · Las Cruces</span>
-        <h1 class="hero-name">Abdul <span class="grad">Khaliq</span></h1>
-        <div class="hero-accent"></div>
-        <div class="hero-role">Environmental &amp; Resource Economics Student</div>
-        <p class="hero-thesis">Interested in applied research focused on the effects of <b>institutions, regulation, and governance</b> on environmental and energy outcomes.</p>
-        <div class="hero-stats">
-          <div class="pill"><b>7</b><span>Peer-reviewed<br>articles</span></div>
-          <div class="pill"><b>3</b><span>Working papers<br> R&amp;R</span></div>
-          <div class="pill"><b>4</b><span>Policy<br>reports</span></div>
-          <div class="pill"><b>510</b><span>Students<br>taught and assisted</span></div>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="hero-badge"><span class="dot"></span>New Mexico State University · Las Cruces</span>
+            <h1 class="hero-name">Abdul <span class="grad">Khaliq</span></h1>
+            <div class="hero-accent"></div>
+            <div class="hero-role">Environmental &amp; Resource Economics Student</div>
+            <p class="hero-thesis">Interested in applied research focused on the effects of <b>institutions, regulation, and governance</b> on environmental and energy outcomes.</p>
+            <div class="hero-stats">
+              <div class="pill"><b>7</b><span>Peer-reviewed<br>articles</span></div>
+              <div class="pill"><b>3</b><span>Working papers<br> R&amp;R</span></div>
+              <div class="pill"><b>4</b><span>Policy<br>reports</span></div>
+              <div class="pill"><b>510</b><span>Students<br>taught and assisted</span></div>
+            </div>
+          </div>
+
+          <div class="hero-photo-wrap">
+            <!-- REPLACE YOUR_GOOGLE_DRIVE_FILE_ID below with the file ID from your shared Google Drive photo link -->
+            <img
+              class="hero-photo"
+              src="https://drive.google.com/file/d/1L0pDPzOtCz9YB-A45d5TPlhzGBTps-l0/view?usp=sharing"
+              alt="Abdul Khaliq profile picture"
+            />
+          </div>
         </div>
       </div>
     </section>
