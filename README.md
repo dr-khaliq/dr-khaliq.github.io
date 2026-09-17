@@ -1,6 +1,5 @@
 # Abdul Khaliq — Academic Website
 
-Static academic website for GitHub Pages.
 
 ## Structure
 
