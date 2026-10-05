@@ -1,1 +1,1 @@
-# Abdul Khaliq | Personal Website
+# Personal Website
