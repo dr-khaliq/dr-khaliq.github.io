@@ -1,0 +1,187 @@
+/* Abdul Khaliq | Academic website | responsive, dependency-free */
+:root {
+  color-scheme: light;
+  --accent: #761b3c;
+  --accent-dark: #56142d;
+  --ink: #27292c;
+  --body: #45474a;
+  --muted: #62656a;
+  --line: #e4e1dd;
+  --soft-line: #efedea;
+  --paper: #ffffff;
+  --soft-paper: #f8f7f5;
+  --max: 1080px;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+*, *::before, *::after {box-sizing: border-box;}
+html {scroll-behavior: smooth;}
+body {margin: 0; background: var(--paper); color: var(--ink); font: 15.5px/1.7 var(--sans); -webkit-font-smoothing: antialiased;}
+a {color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px;}
+a:hover {color: var(--accent-dark);}
+a:focus-visible, summary:focus-visible {outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px;}
+.wrap {width: min(calc(100% - 96px), var(--max)); margin-inline: auto;}
+.sr-only {position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;}
+.skip-link {position: fixed; z-index: 100; inset: -100px auto auto 16px; padding: 8px 14px; background: white; border: 2px solid var(--accent); color: var(--accent);}
+.skip-link:focus {top: 12px;}
+
+/* Shared navigation */
+.site-header {border-top: 4px solid var(--accent); border-bottom: 1px solid var(--line); background: var(--paper);}
+.header-inner {min-height: 98px; display: flex; justify-content: space-between; align-items: center; gap: 28px;}
+.site-signature {display: inline-flex; flex-direction: column; gap: 3px; min-width: 0; color: var(--ink); text-decoration: none; line-height: 1.22;}
+.site-signature:hover {color: var(--ink); text-decoration: none;}
+.signature-name {font: 400 23px/1.3 var(--serif); letter-spacing: -.025em;}
+.signature-institution {font: 500 11px/1.5 var(--sans); letter-spacing: .095em; text-transform: uppercase; color: var(--muted);}
+.primary-nav {display: flex; flex-wrap: wrap; align-items: center; gap: 12px 29px;}
+.primary-nav a {color: var(--body); font-size: 13.3px; text-decoration: none; white-space: nowrap; padding: 9px 0; border-bottom: 2px solid transparent;}
+.primary-nav a:hover, .primary-nav a[aria-current="page"] {border-bottom-color: var(--accent); color: var(--accent);}
+.primary-nav a[aria-current="page"] {font-weight: 650;}
+.primary-nav .cv-link {color: var(--accent);}
+
+/* About page */
+.hero {padding: 70px 0 67px; max-width: 835px;}
+.hero.has-portrait {max-width: none; display: grid; grid-template-columns: minmax(0, 1fr) 248px; gap: clamp(38px,7vw,104px); align-items: start;}
+.hero-copy {min-width: 0;}
+.hero h1, .page-heading h1 {font-family: var(--serif); font-weight: 400; letter-spacing: -.038em; color: #29282b;}
+.hero h1 {font-size: clamp(46px, 5.25vw, 61px); line-height: 1.1; margin: 0 0 10px;}
+.hero-affiliation {font-size: 13.4px; color: var(--muted); margin: 0 0 34px;}
+.hero-affiliation span {color: #a39c9b; padding: 0 6px;}
+.hero-lead {margin: 0 0 15px; max-width: 670px; color: #323136; font: 400 clamp(22px,2.5vw,26px)/1.4 var(--serif); letter-spacing: -.015em;}
+.hero-bio {margin: 0; max-width: 715px; color: var(--body); font-size: 15.3px; line-height: 1.85;}
+.profile-links {display: flex; flex-wrap: wrap; column-gap: 22px; row-gap: 8px; margin: 27px 0 0;}
+.profile-links a {font-size: 13.2px; font-weight: 600; text-decoration: none; border-bottom: 1px solid #cfafbd;}
+.profile-links a:hover {border-color: var(--accent);}
+.portrait {display: none; margin: 5px 0 0; width: 100%;}
+.portrait.is-loaded {display: block;}
+.portrait img {display: block; width: 100%; height: auto; aspect-ratio: 13 / 16; object-fit: cover; object-position: center 22%; background: var(--soft-paper); border: 1px solid var(--line);}
+.content-divider {border-top: 1px solid var(--line);}
+
+/* Editorial two-column sections */
+.ledger-section {display: grid; grid-template-columns: 206px minmax(0,1fr); gap: 47px; padding: 39px 0 43px; border-bottom: 1px solid var(--line); scroll-margin-top: 16px;}
+.ledger-heading {min-width: 0;}
+.ledger-heading h2 {font: 400 22px/1.3 var(--serif); color: var(--ink); letter-spacing: -.018em; margin: 0;}
+.section-note {color: var(--muted); font: 12.5px/1.6 var(--sans); margin: 8px 0 0;}
+.ledger-main {min-width: 0;}
+.interest-line {margin: 0; font-size: 14.8px; line-height: 1.8; color: var(--body);}
+.interest-line span {color: #ab9da3; padding: 0 6px;}
+.body-reading {max-width: 690px; margin: 0; color: var(--body); line-height: 1.9;}
+.citation-list {margin: 0; padding: 0; list-style: none; counter-reset: none;}
+.citation-row {display: grid; grid-template-columns: 70px minmax(0,1fr); gap: 18px; border-bottom: 1px solid var(--soft-line); padding: 0 0 22px; margin: 0 0 22px;}
+.citation-row:last-child {border-bottom: 0; padding-bottom: 0; margin-bottom: 0;}
+.citation-year {color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; padding-top: 2px; overflow-wrap: anywhere;}
+.citation-body {min-width: 0;}
+.citation-title {font: 400 17px/1.43 var(--serif); letter-spacing: -.008em; color: var(--accent); text-decoration: none; overflow-wrap: anywhere;}
+a.citation-title:hover {text-decoration: underline; text-underline-offset: 3px;}
+.plain-title {color: #333238;}
+.citation-meta {font-size: 12.9px; line-height: 1.65; color: var(--muted); margin: 6px 0 0;}
+.citation-meta em {font-style: italic;}
+.citation-separator {color: #a6a3a4; padding: 0 5px;}
+.section-action {font-size: 13.3px; margin: 25px 0 0;}
+.section-action a {font-weight: 600; text-decoration: none; border-bottom: 1px solid #cfafbd;}
+.section-action a:hover {border-color: var(--accent);}
+
+/* Research and teaching page lead-ins */
+.page-wrap {padding-bottom: 26px;}
+.page-heading {padding: 61px 0 53px; max-width: 760px;}
+.page-heading h1 {font-size: clamp(43px,4.6vw,55px); line-height: 1.15; margin: 0 0 13px;}
+.page-heading p {max-width: 690px; font-size: 15.7px; color: var(--body); line-height: 1.8; margin: 0;}
+.page-wrap .ledger-section {padding-block: 42px 47px;}
+
+/* Teaching tables */
+.responsive-table {width: 100%;}
+.responsive-table table {width: 100%; border-collapse: collapse; font: 13.4px/1.55 var(--sans);}
+.responsive-table th {padding: 0 12px 12px 0; border-bottom: 1px solid #bdb8b3; text-align: left; color: #58595d; text-transform: uppercase; font-size: 10.8px; line-height: 1.4; letter-spacing: .055em; font-weight: 700;}
+.responsive-table td {padding: 12px 12px 12px 0; border-bottom: 1px solid var(--soft-line); vertical-align: top; color: var(--body);}
+.responsive-table tbody tr:last-child td {border-bottom: 0;}
+.responsive-table th:last-child, .responsive-table td:last-child {text-align: right; padding-right: 0; font-variant-numeric: tabular-nums;}
+.responsive-table th:first-child, .responsive-table td:first-child {white-space: nowrap;}
+
+/* Student feedback */
+.quote-stack {max-width: 680px;}
+.student-quote {margin: 0; border: 0; padding: 0 0 18px;}
+.student-quote + .student-quote {padding-top: 18px; border-top: 1px solid var(--soft-line);}
+.student-quote p {font: 400 16px/1.65 var(--serif); margin: 0; color: #404045;}
+.additional-quotes {max-width: 680px; border-top: 1px solid var(--line); padding-top: 14px; margin-top: 12px;}
+.additional-quotes summary {cursor: pointer; color: var(--accent); font: 600 13px/1.6 var(--sans); width: max-content; max-width: 100%;}
+.additional-quotes summary span {display: none;}
+.additional-quotes[open] summary {margin-bottom: 22px;}
+
+/* Footer */
+.site-footer {margin-top: 28px; background: var(--soft-paper); border-top: 1px solid var(--line);}
+.footer-inner {display: flex; align-items: start; justify-content: space-between; gap: 24px; padding-block: 33px 38px;}
+.footer-identity {display: flex; flex-direction: column; gap: 3px;}
+.footer-identity strong {font: 400 18px/1.4 var(--serif);}
+.footer-identity span {font: 12px/1.6 var(--sans); color: var(--muted);}
+.footer-links {display: flex; flex-wrap: wrap; gap: 8px 18px; padding-top: 6px;}
+.footer-links a {font-size: 12.5px; text-decoration: none;}
+.footer-links a:hover {text-decoration: underline;}
+
+/* Smaller layouts retain the same hierarchy */
+@media (max-width: 920px) {
+  .wrap {width: min(calc(100% - 64px),var(--max));}
+  .header-inner {gap: 16px;}
+  .primary-nav {gap: 9px 20px;}
+  .hero {padding-block: 56px 58px;}
+  .hero.has-portrait {grid-template-columns: minmax(0,1fr) 208px; gap: 38px;}
+  .ledger-section {grid-template-columns: 180px minmax(0,1fr); gap: 30px;}
+  .citation-row {grid-template-columns: 60px minmax(0,1fr); gap: 15px;}
+}
+@media (max-width: 700px) {
+  .wrap {width: calc(100% - 44px);}
+  .header-inner {display: block; min-height: 0; padding-block: 20px 12px;}
+  .signature-name {font-size: 21px;}
+  .signature-institution {font-size: 10.5px;}
+  .primary-nav {margin-top: 14px; justify-content: flex-start; gap: 3px 24px;}
+  .primary-nav a {font-size: 12.8px; padding: 5px 0 8px;}
+  .hero {padding-block: 40px 45px;}
+  .hero.has-portrait {display: flex; flex-direction: column-reverse; align-items: start; gap: 25px;}
+  .portrait {width: 158px; margin: 0;}
+  .hero h1 {font-size: 44px;}
+  .hero-affiliation {font-size: 12.9px; margin-bottom: 25px;}
+  .hero-lead {font-size: 23px;}
+  .hero-bio {font-size: 14.8px; line-height: 1.8;}
+  .profile-links {margin-top: 22px; gap: 7px 17px;}
+  .ledger-section, .page-wrap .ledger-section {display: block; padding-block: 29px 34px;}
+  .ledger-heading {margin-bottom: 18px;}
+  .ledger-heading h2 {font-size: 22px;}
+  .section-note {margin-top: 5px;}
+  .page-heading {padding-block: 39px 41px;}
+  .page-heading h1 {font-size: 43px;}
+  .page-heading p {font-size: 14.8px;}
+  .citation-row {grid-template-columns: 56px minmax(0,1fr); gap: 13px; margin-bottom: 19px; padding-bottom: 19px;}
+  .citation-title {font-size: 16.7px;}
+  .citation-meta {font-size: 12.7px;}
+  .footer-inner {display: block; padding-block: 27px 31px;}
+  .footer-links {margin-top: 14px;}
+}
+@media (max-width: 570px) {
+  /* A course becomes a semantically intact series of readable stacked records. */
+  .responsive-table table, .responsive-table tbody, .responsive-table tr, .responsive-table td {display: block; width: 100%;}
+  .responsive-table thead {position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;}
+  .responsive-table tbody tr {border-bottom: 1px solid var(--line); padding: 10px 0 13px;}
+  .responsive-table tbody tr:first-child {padding-top: 0;}
+  .responsive-table tbody tr:last-child {border-bottom: 0;}
+  .responsive-table td, .responsive-table td:last-child {border-bottom: 0; display: grid; grid-template-columns: 84px minmax(0,1fr); gap: 10px; padding: 5px 0; text-align: left; font-size: 13px; white-space: normal; overflow-wrap: anywhere;}
+  .responsive-table td::before {content: attr(data-label); font-size: 10.8px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; padding-top: 2px;}
+  .responsive-table td:first-child {white-space: normal;}
+}
+@media (max-width: 360px) {
+  .wrap {width: calc(100% - 36px);}
+  .primary-nav {gap: 2px 18px;}
+  .primary-nav a {font-size: 12.2px;}
+  .hero h1 {font-size: 40px;}
+  .citation-row {grid-template-columns: 49px minmax(0,1fr); gap: 10px;}
+  .citation-title {font-size: 16px;}
+  .interest-line span {padding-inline: 3px;}
+}
+@media (prefers-reduced-motion: reduce) {html {scroll-behavior: auto;}}
+@media print {
+  :root {--accent:#391421;}
+  .site-header {border-top: 0;}
+  .primary-nav, .profile-links, .footer-links, .section-action {display: none;}
+  .wrap {width: 100%;}
+  .hero {padding-block: 24px;}
+  .ledger-section {break-inside: avoid;}
+  .additional-quotes:not([open]) {display: none;}
+  a {color: inherit;}
+}
