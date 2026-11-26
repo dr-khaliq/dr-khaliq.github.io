@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://dr-khaliq.github.io/sitemap.xml
